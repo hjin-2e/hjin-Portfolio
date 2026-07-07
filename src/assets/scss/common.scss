@@ -1,0 +1,149 @@
+/* ====================================================================================================
+   공통
+==================================================================================================== */
+:root {
+  --white-color:#FFF;
+  --black-color: #111;
+  --common-color: #078eb9
+}
+
+body {
+  letter-spacing: -1px;
+  color: #353434;
+  font-size: 62.5%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+section.sub{
+  padding:80px 0 0;
+}
+
+#container {
+  height:100%;
+}
+
+/* .main-body {height:100%;min-width:900px\0/!important;overflow:hidden;} */
+
+.main-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background: var(--white-color);
+}
+
+.bg-gray {
+  background: #f1f3f6;
+}
+
+.bg-gray2 {
+  background:#eee;
+}
+
+.bg-sky {
+  background: #ebf3ff;
+}
+
+.bg-red {
+  background: #ff0000 !important;
+}
+
+.inBox {
+  width: 100%;
+  max-width: 1000px;
+  margin: 45px auto 0;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto
+}
+
+.txt-gray {
+  color: #959595;
+}
+
+.add-bottom {
+  font-size: 2.8rem;
+  color: #262626;
+  font-weight: 700;
+}
+
+.center {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.tal {
+  text-align:left;
+  padding-left:10px !important;
+}
+
+.bold { 
+  color: #111;
+  font-size: 16px; 
+  font-weight: bold;   
+} 
+
+.box-horizon {
+  overflow-x: auto;
+  padding-bottom: 10px;
+
+  .in-horizon {
+    min-width: 590px;
+
+    &.no-2 {
+      min-width: 800px;
+    }
+  }
+}
+
+#clock {
+  color: #1d7de7;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.txt-bottom {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #aaa;
+}
+
+.h2 {
+  height: 63px;
+}
+
+.b-n {
+  border:none !important;
+}
+.b-b-n {
+  border-bottom:none !important;
+}
+
+
+/* ====================================================================================================
+   Header
+==================================================================================================== */
+#header {
+  background-color: #EEE;
+
+  .nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      li {
+        font-size: 21px;
+      }
+    }
+  }
+}
+
+/* ====================================================================================================
+   Footer
+==================================================================================================== */
