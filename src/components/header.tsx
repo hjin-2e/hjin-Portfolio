@@ -1,20 +1,24 @@
+import { Link } from 'react-router-dom';
 
+// TypeScript 호환을 위해 props 타입 지정
+interface HeaderProps {
+  isFixed?: boolean;
+}
 
-const Header = () => {
+const Header = ({ isFixed }: HeaderProps) => {
 
   return (
-    <header id="header">
-      <div className="header-wrap">
-        <div className="header-inner">
-          <h1 className="logo">Hajin</h1>
-          <div className="nav">
-            <ul>
-              <li><a href="">Info</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Projects</a></li>
-              <li><a href="">Contact</a></li>
-            </ul>
-          </div>
+    <header id="header" className={isFixed ? 'on' : ''}>
+      <div className="header-wrap header-inner">
+        <div className="nav">
+          <h1 className="header-logo">Hajin's Portfolio</h1>
+          <ul className="nav-list">
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#about">About ME</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </div>
       </div>    
     </header>

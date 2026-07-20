@@ -4,12 +4,16 @@
 :root {
   --white-color:#FFF;
   --black-color: #111;
-  --common-color: #078eb9
+  --common-color: #078eb9;
+  --point-color: #1d7de7;
+  --gray-color: #6e6e6e;
+  --gray-title-color: #a5a5a5;
+  --sub-font-color: #666;
 }
 
 body {
   letter-spacing: -1px;
-  color: #353434;
+  color: #222;
   font-size: 62.5%;
 }
 
@@ -27,7 +31,7 @@ section.sub{
 
 /* .main-body {height:100%;min-width:900px\0/!important;overflow:hidden;} */
 
-.main-body {
+.contents {
   position: relative;
   display: flex;
   align-items: center;
@@ -125,20 +129,69 @@ section.sub{
   border-bottom:none !important;
 }
 
+// arrow 링크
+.link-arrow {
+  position: relative;
+  color: var(--point-color);
+  font-size: 2rem;
+  transition: .4s all ease-in-out;
+  i {
+    position: absolute;
+    top: 50%;
+    right: -3rem;
+    transform: translate(0, -50%);
+  }
+}
+
 
 /* ====================================================================================================
    Header
 ==================================================================================================== */
 #header {
-  background-color: #EEE;
-
-  .nav {
-    ul {
+  position: fixed;
+  width: 100%;
+  height:90px;
+  z-index: 999;
+  &.on {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .header-wrap {
+    padding: 0 5vw;
+    margin: 0 auto;
+    height: 100%;
+    font-size: 2rem;
+    .nav {
       display: flex;
-      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      li {
-        font-size: 21px;
+      height: 100%;
+      .header-logo {
+        font-size: 2.5rem;
+      }
+      .nav-list {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li {
+          height: 100%;
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--black-color);
+            transition: all 0.3s;
+            &:hover {
+              color: var(--point-color);
+            }
+          }
+        }
       }
     }
   }
@@ -147,3 +200,21 @@ section.sub{
 /* ====================================================================================================
    Footer
 ==================================================================================================== */
+#footer {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background: var(--black-color);
+  .footer-wrap {
+    padding: 0 5vw;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-size: 1.4rem;
+      color: var(--gray-color);
+    }
+  }
+}

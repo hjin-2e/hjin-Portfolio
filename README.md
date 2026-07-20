@@ -1,6 +1,4 @@
-# front_train
-
-## Project setup
+# Project setup
 
 ```
 npm install

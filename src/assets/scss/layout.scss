@@ -1,3 +1,204 @@
 /* ==================================================
-    메인
+	메인
 ================================================== */
+.main {
+	position: relative;
+	height: 100%;
+	background: url("../img/main_bg.png") no-repeat;
+	background-size: cover;
+	.main-inner {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 10vw 8vw 7vw;
+		h2 {
+			font-size: 8rem;
+			font-weight: bold;
+			color: var(--black-color);
+			text-align: center;
+		}
+		p {
+			margin-top: 8rem;
+			font-size: 2rem;
+			line-height: 1.8;
+			color: var(--gray-color);
+			span {
+				display: block;
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+/* ==================================================
+	서브
+================================================== */
+.sec {
+	position: relative;
+	// max-width: 1400px;
+	height: 100%;
+	margin: 0 auto;
+	.sec-inner {
+		padding: 5vw 8vw;
+		height: 100%;
+		h3 {
+			font-size: 2.4rem;
+			font-weight: 400;
+			color: var(--gray-title-color);
+			margin-bottom: 5rem;
+		}
+	}
+}
+
+// AboutMe
+.sec01 {
+	.about-wrap {
+		.about-box {
+			display: flex;
+			flex-wrap: wrap;
+    	justify-content: space-around;
+    	gap: 2%;
+			h5 {
+				font-size: clamp(2rem, 2.8vw, 2.8rem);
+    		font-weight: bold;
+			}
+			.about-img {
+				object-fit: cover;
+				overflow: hidden;
+				width: 46rem;
+				aspect-ratio: 46 / 57;
+				margin-bottom: 2rem;
+				border-radius: 3rem;
+				background-color: var(--white-color);
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			.about-txt {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+// Work
+.sec02 {
+	.work-wrap {
+		.work-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2%;
+			li {
+				width: 48%;
+        margin-bottom: 6rem;
+				a {
+					display: inline-block;
+					width: 100%;
+					img {
+						width: 100%;
+						height: 100%;
+						border-radius: 20px;
+						box-shadow: 3px 0 7px rgb(108 108 108 / 10%);
+					}
+				}
+				.work-txt {
+					h5 {
+						font-size: 3rem;
+						font-size: clamp(2rem, 3vw, 3rem);
+						font-weight: bold;
+					}
+					p {
+						color: var(--sub-font-color);
+						font-size: 2.2rem;
+						font-size: clamp(1.5rem, 2vw, 2.2rem);
+						line-height: 2;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Project
+.sec03 {
+	.project-wrap {
+		.project-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2%;
+			li {
+				width: 48%;
+        margin-bottom: 6rem;
+				a {
+					display: inline-block;
+					width: 100%;
+					img {
+						width: 100%;
+						height: 100%;
+						border-radius: 20px;
+						box-shadow: 3px 0 7px rgb(108 108 108 / 10%);
+					}
+				}
+				.project-txt {
+					h5 {
+						font-size: 3rem;
+						font-size: clamp(2rem, 3vw, 3rem);
+						font-weight: bold;
+					}
+					p {
+						color: var(--sub-font-color);
+						font-size: 2.2rem;
+						font-size: clamp(1.5rem, 2vw, 2.2rem);
+						line-height: 2;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Contact
+.sec04 {
+	.contact-wrap {
+		position: relative;
+		.contact-txt {
+			margin-top: 10rem;
+			font-size: 2rem;
+				line-height: 1.6;
+			p {
+				color: var(--block-color);
+				span {
+					display: block;
+					margin-top: 10px;
+				}
+			}
+		}
+		.cont-email {
+			margin-bottom: 2rem;
+			p {
+				position: relative;
+				&.word {
+				// position: relative;
+				// top: 50%;
+				// left: 50%;
+				// // transform: translate(-50%, -50%);
+				font-size: 70px;
+				.letter {
+					display: inline-block;
+					transform: translateY(20px);
+					opacity: 0;
+					transition: all 500ms ease-in;
+					font-size: 8rem;
+					font-size: clamp(2rem, 8vw, 8rem);
+					font-weight: bold;
+					&.on {
+						transform: translateY(0);
+						opacity: 1;
+					}
+				}
+			}
+			}
+		}
+	}
+}
