@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://hjin-2e.github.io/hjin-Portfolio", 
+  "homepage": "https://www.hamong.site", 
   "scripts": {
     "dev": "vite",
     "build": "vite build",
