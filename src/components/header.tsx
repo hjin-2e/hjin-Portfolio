@@ -13,7 +13,7 @@ const Header = ({ isFixed }: HeaderProps) => {
         <div className="nav">
           <h1 className="header-logo">Hajin's Portfolio</h1>
           <ul className="nav-list">
-            <li><a href="#Home">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About ME</a></li>
             <li><a href="#work">Work</a></li>
             <li><a href="#project">Project</a></li>

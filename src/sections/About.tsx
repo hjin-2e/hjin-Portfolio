@@ -7,16 +7,16 @@ const About = () => {
       <div className="sec-inner">
         <h3 className="sec-tit">About Me</h3>
         <div className="about-wrap">
-          <div className="about-box">
+          <div className="about-box container-md">
             <div className="about-img">
               <img src={IMAGES.ME} alt="이하진 프로필 사진" />
             </div>
             <div className="about-txt">
               <p>안녕하세요! DevOps 엔지니어 이하진입니다.</p>
+              <p>사용자 입장에서 고려하는 서비스를 추구하며, 팀원들과의 원활한 소통을 중요시 여기고 있습니다.</p>
               <p></p>
               <p></p>
-              <p></p>
-              <p></p>
+              <p>맡은 일에 애정을 가지고 책임감 있게 업무를 수행합니다.<br/>주어진 역할에서 가치를 창출하며, 제 역량을 충분히 발휘하고자 합니다.</p>
               <a href="https://app.notion.com/p/rajinse/1e6b30fb662582e8a691817d15cf4fd8?source=copy_link" target="_blank" className="link-arrow">
                 자기소개 더보기
                 <i className="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
@@ -24,7 +24,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="about-box mt50">
+          <div className="about-box container-md mt50">
             <div>
               <h5>WORK EXPERIENCE</h5>
               <div className="about-txt">
