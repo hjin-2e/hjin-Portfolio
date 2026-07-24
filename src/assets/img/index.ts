@@ -78,6 +78,7 @@ import cloud_project02_48 from './project/cloud_project02_48.jpg';
 import cloud_project02_49 from './project/cloud_project02_49.jpg';
 import cloud_project02_50 from './project/cloud_project02_50.jpg';
 import cloud_project02_51 from './project/cloud_project02_51.jpg';
+// import work01_01 from './work/work01_01.jpg';
 
 
 
@@ -158,4 +159,6 @@ export const IMAGES = {
   CLOUD_PROJECT02_49: cloud_project02_49,
   CLOUD_PROJECT02_50: cloud_project02_50,
   CLOUD_PROJECT02_51: cloud_project02_51,
+  // WORK01_01: work01_01,
+  
 };

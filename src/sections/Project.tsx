@@ -7,7 +7,10 @@ interface ProjectItem {
   title: string;
   category: string;
   description?: string;
-  images?: string[];
+  githubUrl: string;
+  pptUrl: string;
+  thumbnail: string;      
+  modalImages?: string[];
 }
 
 // 첫번째 프로젝트용 이미지 리스트
@@ -36,15 +39,10 @@ const cloudProject01Images = [
 // 두번째 프로젝트용 이미지 리스트
 const cloudProject02Images = [
   IMAGES.CLOUD_PROJECT02_01,
-  IMAGES.CLOUD_PROJECT02_02,
-  IMAGES.CLOUD_PROJECT02_03,
   IMAGES.CLOUD_PROJECT02_04,
   IMAGES.CLOUD_PROJECT02_05,
-  IMAGES.CLOUD_PROJECT02_06,
-  IMAGES.CLOUD_PROJECT02_07,
   IMAGES.CLOUD_PROJECT02_08,
   IMAGES.CLOUD_PROJECT02_09,
-  IMAGES.CLOUD_PROJECT02_10,
   IMAGES.CLOUD_PROJECT02_11,
   IMAGES.CLOUD_PROJECT02_12,
   IMAGES.CLOUD_PROJECT02_13,
@@ -55,40 +53,8 @@ const cloudProject02Images = [
   IMAGES.CLOUD_PROJECT02_18,
   IMAGES.CLOUD_PROJECT02_19,
   IMAGES.CLOUD_PROJECT02_20,
-  IMAGES.CLOUD_PROJECT02_21,
-  IMAGES.CLOUD_PROJECT02_22,
-  IMAGES.CLOUD_PROJECT02_23,
-  IMAGES.CLOUD_PROJECT02_24,
-  IMAGES.CLOUD_PROJECT02_25,
-  IMAGES.CLOUD_PROJECT02_26,
-  IMAGES.CLOUD_PROJECT02_27,
-  IMAGES.CLOUD_PROJECT02_28,
-  IMAGES.CLOUD_PROJECT02_29,
-  IMAGES.CLOUD_PROJECT02_30,
-  IMAGES.CLOUD_PROJECT02_31,
-  IMAGES.CLOUD_PROJECT02_32,
-  IMAGES.CLOUD_PROJECT02_33,
-  IMAGES.CLOUD_PROJECT02_34,
-  IMAGES.CLOUD_PROJECT02_35,
-  IMAGES.CLOUD_PROJECT02_36,
-  IMAGES.CLOUD_PROJECT02_37,
-  IMAGES.CLOUD_PROJECT02_38,
-  IMAGES.CLOUD_PROJECT02_39,
-  IMAGES.CLOUD_PROJECT02_40,
-  IMAGES.CLOUD_PROJECT02_41,
-  IMAGES.CLOUD_PROJECT02_42,
-  IMAGES.CLOUD_PROJECT02_43,
-  IMAGES.CLOUD_PROJECT02_44,
-  IMAGES.CLOUD_PROJECT02_45,
-  IMAGES.CLOUD_PROJECT02_46,
-  IMAGES.CLOUD_PROJECT02_47,
-  IMAGES.CLOUD_PROJECT02_48,
-  IMAGES.CLOUD_PROJECT02_49,
-  IMAGES.CLOUD_PROJECT02_50,
   IMAGES.CLOUD_PROJECT02_51,
 ];
-
-
 
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -100,14 +66,20 @@ const Project = () => {
       title: 'Global Accelerator를 활용한 하이브리드 환경의 인프라 구축',
       category: '클라우드 | 인프라 · 대시보드 · 장애복구',
       description: 'Global Accelerator를 활용한 하이브리드 환경의 인프라 구축 관련 상세 내용입니다.',
-      images: cloudProject01Images,
+      githubUrl: '',
+      pptUrl: '',
+      thumbnail: IMAGES.CLOUD_PROJECT01_01, // 카드 썸네일 이미지
+      modalImages: cloudProject01Images, // 모달 출력용 이미지들
     },
     {
       id: 2,
       title: '테라폼을 활용한 MSA 기반의 보안성과 가용성을 갖춘 하이브리드 철도 예매 플랫폼 구축',
       category: '클라우드 | 인프라 · 웹페이지 · 장애복구',
       description: '테라폼을 활용한 MSA 기반의 보안성과 가용성을 갖춘 하이브리드 철도 예매 플랫폼 구축 관련 작업 상세 내용입니다.',
-      images: cloudProject02Images,
+      githubUrl: 'https://github.com/hjin-2e/Train_repo.git',
+      pptUrl: '',
+      thumbnail: IMAGES.CLOUD_PROJECT02_01, // 카드 썸네일 이미지
+      modalImages: cloudProject02Images, // 모달 출력용 이미지들
     },
   ];
 
@@ -131,7 +103,8 @@ const Project = () => {
                   style={{ cursor: 'pointer' }}
                 >
                   <div className="project-img">
-                    <img src={item.images && item.images.length > 0 ? item.images[0] : ''} alt={item.title} />
+                    {/* 카드 썸네일 출력 */}
+                    <img src={item.thumbnail} alt={item.title} />
                   </div>
                   <div className="project-txt">
                     <h5>{item.title}</h5>
@@ -155,14 +128,34 @@ const Project = () => {
             <p className="category none"><strong>구분:</strong> {selectedProject.category}</p>
             <p className="desc none">{selectedProject.description}</p>
 
-            {selectedProject.images && selectedProject.images.length > 0 && (
+            {/* 링크 버튼 영역 (링크가 하나라도 있을 때만 렌더링) */}
+            {(selectedProject.githubUrl || selectedProject.pptUrl) && (
+              <div className="modal-links" style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                {/* 1. githubUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
+                {selectedProject.githubUrl && (
+                  <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="link-btn github">
+                    📂 GitHub 바로가기
+                  </a>
+                )}
+
+                {/* 2. pptUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
+                {selectedProject.pptUrl && (
+                  <a href={selectedProject.pptUrl} target="_blank" rel="noopener noreferrer" className="link-btn ppt">
+                    📊 PPT 발표자료 보기
+                  </a>
+                )}
+              </div>
+            )}
+
+            {/* 모달에 띄울 이미지들 출력 (slice(1) 추가됨) */}
+            {selectedProject.modalImages && selectedProject.modalImages.length > 0 && (
               <div className="modal-img-list" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {selectedProject.images.map((imgSrc, index) => (
+                {selectedProject.modalImages.slice(1).map((imgSrc, index) => (
                   <div key={index} className="modal-img-item">
                     <img 
-                      key={index} 
                       src={imgSrc} 
-                      alt={`${selectedProject.title} 이미지 ${index + 1}`} 
+                      /* 첫 번째 이미지를 제외했으므로, 텍스트 상으로는 2번째 이미지부터 시작하도록 인덱스 조정 (선택사항) */
+                      alt={`${selectedProject.title} 이미지 ${index + 2}`} 
                       style={{ width: '100%', height: 'auto', borderRadius: '4px' }}
                     />
                   </div>

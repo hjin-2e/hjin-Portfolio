@@ -9,7 +9,14 @@ interface WorkItem {
   skill: string;
   contribution : string;
   description: string;
+  notionUrl: string;
+  thumbnail: string;      
+  modalImages?: string[];
 }
+
+// const work01Images = [
+//   IMAGES.work01_01,
+// ];
 
 const Work = () => {
   const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
@@ -24,6 +31,8 @@ const Work = () => {
       skill: 'HTML5 · CSS3 · Javascript · J-query · Vue', 
       contribution : '퍼블리싱 100%', 
       description: 'Figma 디자인 기반 메가스터디 교육 사이트 퍼블리싱 작업입니다.',
+      notionUrl: 'https://app.notion.com/p/rajinse/Web-3a3b30fb662580fa9f8ded862bef4ed0?source=copy_link',
+      thumbnail: '',
     },
     {
       id: 2,
@@ -33,6 +42,8 @@ const Work = () => {
       skill: 'HTML5 · CSS3 · Javascript · J-query', 
       contribution : '퍼블리싱 100%', 
       description: '- 유학준비생, 유학생, 졸업생 등 사용자 및 분야 별 맞춤화된 정보 제공을 위한 포털 서비스와 국립국제교육원의 내부 정보 시스템 체계를 구축하고, 유학 관련 업무의 효율적 수행을 위한 유학생 업무 관리 시스템 개선합니다.',
+      notionUrl: 'https://app.notion.com/p/rajinse/Web-3a3b30fb662580b2aa5df52467cdc345?source=copy_link',
+      thumbnail: '',
     },
     {
       id: 3,
@@ -42,6 +53,8 @@ const Work = () => {
       skill: 'HTML5 · CSS3 · Javascript · J-query', 
       contribution : '퍼블리싱 100%', 
       description: '국민연금 가입자를 위한 5대 공적연금의 연계 표준화 작업 및 통합 서비스 제공을 위한 통합된 공적 연금 연계 급여관리 체계 서비스를 구축했습니다.',
+      notionUrl: 'https://app.notion.com/p/rajinse/Web-2b0b30fb6625826d9d3e01452b827c01?source=copy_link',
+      thumbnail: '',
     },
     {
       id: 4,
@@ -51,6 +64,8 @@ const Work = () => {
       skill: 'HTML5 · CSS3 · Javascript · J-query · FIGMA', 
       contribution : '퍼블리싱 70% / 판판셀러 관리자 페이지 디자인 100%', 
       description: '비대면화, 유통채널 다각화, 구독경제 확산에 대응할 수 있는 판로정보 종합시스템 플랫폼 구축합니다.',
+      notionUrl: 'https://app.notion.com/p/rajinse/Web-1a1b30fb6625828399ae8178ff8062fb?source=copy_link',
+      thumbnail: '',
     },
     {
       id: 5,
@@ -60,6 +75,8 @@ const Work = () => {
       skill: 'HTML5 · CSS3 · Javascript · J-query', 
       contribution : '퍼블리싱 100%', 
       description: '2021년에 처음 오픈 된 사이트로 벤처기업 확인 절차에 따른 우대지원제도를 운영 웹 서비스 입니다.',
+      notionUrl: 'https://app.notion.com/p/rajinse/Web-e00b30fb66258262bc5e0180734cefbf?source=copy_link',
+      thumbnail: '',
     },
   ];
 
@@ -111,6 +128,16 @@ const Work = () => {
               <dd>{selectedWork?.contribution }</dd>
             </dl>
             <p className="desc">{selectedWork.description}</p>
+
+            {/* 링크 버튼 영역 (링크가 하나라도 있을 때만 렌더링) */}
+            {(selectedWork.notionUrl) && (
+              <div className="modal-links">
+                {selectedWork.notionUrl && (
+                  <a href={selectedWork.notionUrl} target="_blank" rel="noopener noreferrer" className="link-btn notion">📂 Notion 바로가기</a>
+                )}
+              </div>
+            )}
+
           </div>
         )}
       </Modal>

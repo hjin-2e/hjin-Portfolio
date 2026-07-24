@@ -21,6 +21,7 @@
 			font-size: 2rem;
 			line-height: 1.8;
 			color: var(--gray-color);
+      word-break: keep-all;
 			span {
 				display: block;
 				margin-top: 10px;
@@ -55,13 +56,18 @@
 		.about-box {
 			display: flex;
 			flex-wrap: wrap;
-    	justify-content: space-around;
-    	gap: 2%;
+			justify-content: space-between;
+			gap: 2%;
 			&.container-md {
 				width: 90%;
 				max-width: 1400px;
 				margin: 0 auto;
 			}
+      &:first-of-type {
+        .about-txt {
+          width: 60%;
+        }
+      }
 			h5 {
 				font-size: clamp(2rem, 2.8vw, 2.8rem);
     		font-weight: bold;
@@ -83,6 +89,7 @@
 			.about-txt {
 				font-size: 2rem;
 				line-height: 1.6;
+        word-break: keep-all;
 			}
 		}
 	}
@@ -216,4 +223,288 @@
 			}
 		}
 	}
+}
+
+
+
+/* ====================================================================================================
+   모바일 환경 (화면 너비 768px 이하일 때 적용)
+==================================================================================================== */
+@media (max-width: 768px) {
+  .main {
+    .main-inner {
+      max-width: 680px;
+      padding: 10vw 6vw;
+      .home-logo-wrap {
+        margin-top: 5rem;
+      }
+      h2 {
+        font-size: 6rem;
+      }
+      p {
+        margin-top: 5rem;
+        font-size: 1.6rem;
+        line-height: 1.6;
+      }
+    }
+  }
+
+//  서브
+  .sec {
+    .sec-inner {
+      padding: 7vw 6vw;
+      height: 100%;
+      h3 {
+        font-size: 2.1rem;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  // AboutMe
+  .sec01 {
+    .about-wrap {
+      .about-box {
+        justify-content: flex-start;
+        &.container-md {
+          width: 100%;
+          max-width: 680px;
+          > div:last-child {
+            .sub-tit {
+              margin-top: 2rem;
+            }
+          }
+        }
+        h5 {
+          font-size: clamp(2rem, 2.8vw, 2.8rem);
+          font-weight: bold;
+        }
+        .about-img {
+          width: 21rem;
+          aspect-ratio: 21 / 26;
+          margin: 0 auto 2rem;
+          border-radius: 2rem;
+          border: 1px solid var(--gray-title-color)
+        }
+        .about-txt {
+          width: 100%;
+          font-size: 1.6rem;
+          line-height: 1.6;
+          p:first-child {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Work
+  .sec02 {
+    .work-wrap {
+      .work-list {
+        flex-direction: column;
+        li {
+          width: 100%;
+          margin-bottom: 6rem;
+          .work-txt {
+            h5 {
+              font-size: 2rem;
+              font-size: clamp(1.6rem, 3vw, 2rem);
+            }
+            p {
+              color: var(--sub-font-color);
+              font-size: 1.6rem;
+              font-size: clamp(1.4rem, 2vw, 1.6rem);
+              line-height: 2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Project
+  .sec03 {
+    .project-wrap {
+      .project-list {
+        flex-direction: column;
+        li {
+          width: 100%;
+          margin-bottom: 6rem;
+          .project-txt {
+            h5 {
+              font-size: 2rem;
+              font-size: clamp(1.6rem, 3vw, 2rem);
+            }
+            p {
+              color: var(--sub-font-color);
+              font-size: 1.6rem;
+              font-size: clamp(1.4rem, 2vw, 1.6rem);
+              line-height: 2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Contact
+  .sec04 {
+    .contact-wrap {
+      position: relative;
+      .contact-txt {
+        margin-top: 5rem;
+        font-size: 1.6rem;
+        p {
+          span {
+            display: block;
+            margin-top: 5px;
+          }
+        }
+      }
+      .cont-email {
+        margin-bottom: 2rem;
+        p {
+          &.word {
+          font-size: 60px;
+          .letter {
+            transform: translateY(20px);
+            font-size: 6rem;
+            font-size: clamp(2rem, 8vw, 6rem);
+          }
+        }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  .main {
+    .main-inner {
+      max-width: 430px;
+      padding: 10vw 5vw;
+      p {
+        margin-top: 5rem;
+        font-size: 1.4rem;
+        line-height: 1.4;
+      }
+    }
+  }
+
+//  서브
+  .sec {
+    .sec-inner {
+      padding: 3vw 5vw
+      h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  // AboutMe
+  .sec01 {
+    .about-wrap {
+      .about-box {
+        &.container-md {
+          max-width: 430px;
+        }
+        h5 {
+          font-size: clamp(2rem, 2.8vw, 2.4rem);
+        }
+        .about-img {
+          width: 18rem;
+          aspect-ratio: 18 / 23;
+          margin-bottom: 2rem;
+          border-radius: 1.5rem;
+        }
+        .about-txt {
+          font-size: 1.4rem;
+          word-break: keep-all;
+        }
+      }
+    }
+  }
+
+  // Work
+  .sec02 {
+    .work-wrap {
+      .work-list {
+        li {
+          margin-bottom: 4rem;
+          a {
+            img {
+              border-radius: 10px 10px 0 0;
+              box-shadow: 3px 0 5px rgb(108 108 108 / 10%);
+            }
+          }
+          .work-txt {
+            h5 {
+              font-size: 1.8rem;
+              font-size: clamp(1.6rem, 3vw, 1.8rem);
+            }
+            p {
+              color: var(--sub-font-color);
+              font-size: 1.4rem;
+              font-size: clamp(1.2rem, 2vw, 1.4rem);
+              line-height: 1.6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Project
+  .sec03 {
+    .project-wrap {
+      .project-list {
+        li {
+          width: 100%;
+          margin-bottom: 4rem;
+          a {
+            img {
+              border-radius: 10px 10px 0 0;
+              box-shadow: 3px 0 5px rgb(108 108 108 / 10%);
+            }
+          }
+          .project-txt {
+            h5 {
+              font-size: 1.8rem;
+              font-size: clamp(1.6rem, 3vw, 1.8rem);
+            }
+            p {
+              color: var(--sub-font-color);
+              font-size: 1.6rem;
+              font-size: clamp(1.4rem, 2vw, 1.6rem);
+              line-height: 1.6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Contact
+  .sec04 {
+    .contact-wrap {
+      position: relative;
+      .contact-txt {
+        margin-top: 3rem;
+        font-size: 1.4rem;
+      }
+      .cont-email {
+        margin-bottom: 2rem;
+        p {
+          position: relative;
+          &.word {
+          font-size: 40px;
+          .letter {
+            transform: translateY(10px);
+            font-size: 4rem;
+            font-size: clamp(2rem, 8vw, 4rem);
+          }
+        }
+        }
+      }
+    }
+  }
 }
