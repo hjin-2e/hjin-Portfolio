@@ -1,84 +1,98 @@
 // src/assets/img/index.ts
-import me from './hjin.jpg';
-import ico_ppt from './ico_ppt.png';
-import ico_web from './icon_chrome.png';
-import ico_git from './icon_git.png';
-import ico_close from './ico_close.svg';
-import main_bg from './main_bg.png';
+import me from '@/assets/img/hjin.jpg';
+import ico_ppt from '@/assets/img/ico_ppt.png';
+import ico_web from '@/assets/img/icon_chrome.png';
+import ico_git from '@/assets/img/icon_git.png';
+import ico_close from '@/assets/img/ico_close.svg';
+import main_bg from '@/assets/img/main_bg.png';
 
 // 프로젝트 이미지
-import cloud_project01_01 from './project/cloud_project01_01.jpg';
-import cloud_project01_02 from './project/cloud_project01_02.jpg';
-import cloud_project01_03 from './project/cloud_project01_03.jpg';
-import cloud_project01_04 from './project/cloud_project01_04.jpg';
-import cloud_project01_05 from './project/cloud_project01_05.jpg';
-import cloud_project01_06 from './project/cloud_project01_06.jpg';
-import cloud_project01_07 from './project/cloud_project01_07.jpg';
-import cloud_project01_08 from './project/cloud_project01_08.jpg';
-import cloud_project01_09 from './project/cloud_project01_09.jpg';
-import cloud_project01_10 from './project/cloud_project01_10.jpg';
-import cloud_project01_11 from './project/cloud_project01_11.jpg';
-import cloud_project01_12 from './project/cloud_project01_12.jpg';
-import cloud_project01_13 from './project/cloud_project01_13.jpg';
-import cloud_project01_14 from './project/cloud_project01_14.jpg';
-import cloud_project01_15 from './project/cloud_project01_15.jpg';
-import cloud_project01_16 from './project/cloud_project01_16.jpg';
-import cloud_project01_17 from './project/cloud_project01_17.jpg';
-import cloud_project01_18 from './project/cloud_project01_18.jpg';
-import cloud_project01_19 from './project/cloud_project01_19.jpg';
+import cloud_project01_01 from '@/assets/img/project/cloud_project01_01.jpg';
+import cloud_project01_02 from '@/assets/img/project/cloud_project01_02.jpg';
+import cloud_project01_03 from '@/assets/img/project/cloud_project01_03.jpg';
+import cloud_project01_04 from '@/assets/img/project/cloud_project01_04.jpg';
+import cloud_project01_05 from '@/assets/img/project/cloud_project01_05.jpg';
+import cloud_project01_06 from '@/assets/img/project/cloud_project01_06.jpg';
+import cloud_project01_07 from '@/assets/img/project/cloud_project01_07.jpg';
+import cloud_project01_08 from '@/assets/img/project/cloud_project01_08.jpg';
+import cloud_project01_09 from '@/assets/img/project/cloud_project01_09.jpg';
+import cloud_project01_10 from '@/assets/img/project/cloud_project01_10.jpg';
+import cloud_project01_11 from '@/assets/img/project/cloud_project01_11.jpg';
+import cloud_project01_12 from '@/assets/img/project/cloud_project01_12.jpg';
+import cloud_project01_13 from '@/assets/img/project/cloud_project01_13.jpg';
+import cloud_project01_14 from '@/assets/img/project/cloud_project01_14.jpg';
+import cloud_project01_15 from '@/assets/img/project/cloud_project01_15.jpg';
+import cloud_project01_16 from '@/assets/img/project/cloud_project01_16.jpg';
+import cloud_project01_17 from '@/assets/img/project/cloud_project01_17.jpg';
+import cloud_project01_18 from '@/assets/img/project/cloud_project01_18.jpg';
+import cloud_project01_19 from '@/assets/img/project/cloud_project01_19.jpg';
 
-import cloud_project02_01 from './project/cloud_project02_01.jpg';
-import cloud_project02_02 from './project/cloud_project02_02.jpg';
-import cloud_project02_03 from './project/cloud_project02_03.jpg';
-import cloud_project02_04 from './project/cloud_project02_04.jpg';
-import cloud_project02_05 from './project/cloud_project02_05.jpg';
-import cloud_project02_06 from './project/cloud_project02_06.jpg';
-import cloud_project02_07 from './project/cloud_project02_07.jpg';
-import cloud_project02_08 from './project/cloud_project02_08.jpg';
-import cloud_project02_09 from './project/cloud_project02_09.jpg';
-import cloud_project02_10 from './project/cloud_project02_10.jpg';
-import cloud_project02_11 from './project/cloud_project02_11.jpg';
-import cloud_project02_12 from './project/cloud_project02_12.jpg';
-import cloud_project02_13 from './project/cloud_project02_13.jpg';
-import cloud_project02_14 from './project/cloud_project02_14.jpg';
-import cloud_project02_15 from './project/cloud_project02_15.jpg';
-import cloud_project02_16 from './project/cloud_project02_16.jpg';
-import cloud_project02_17 from './project/cloud_project02_17.jpg';
-import cloud_project02_18 from './project/cloud_project02_18.jpg';
-import cloud_project02_19 from './project/cloud_project02_19.jpg';
-import cloud_project02_20 from './project/cloud_project02_20.jpg';
-import cloud_project02_21 from './project/cloud_project02_21.jpg';
-import cloud_project02_22 from './project/cloud_project02_22.jpg';
-import cloud_project02_23 from './project/cloud_project02_23.jpg';
-import cloud_project02_24 from './project/cloud_project02_24.jpg';
-import cloud_project02_25 from './project/cloud_project02_25.jpg';
-import cloud_project02_26 from './project/cloud_project02_26.jpg';
-import cloud_project02_27 from './project/cloud_project02_27.jpg';
-import cloud_project02_28 from './project/cloud_project02_28.jpg';
-import cloud_project02_29 from './project/cloud_project02_29.jpg';
-import cloud_project02_30 from './project/cloud_project02_30.jpg';
-import cloud_project02_31 from './project/cloud_project02_31.jpg';
-import cloud_project02_32 from './project/cloud_project02_32.jpg';
-import cloud_project02_33 from './project/cloud_project02_33.jpg';
-import cloud_project02_34 from './project/cloud_project02_34.jpg';
-import cloud_project02_35 from './project/cloud_project02_35.jpg';
-import cloud_project02_36 from './project/cloud_project02_36.jpg';
-import cloud_project02_37 from './project/cloud_project02_37.jpg';
-import cloud_project02_38 from './project/cloud_project02_38.jpg';
-import cloud_project02_39 from './project/cloud_project02_39.jpg';
-import cloud_project02_40 from './project/cloud_project02_40.jpg';
-import cloud_project02_41 from './project/cloud_project02_41.jpg';
-import cloud_project02_42 from './project/cloud_project02_42.jpg';
-import cloud_project02_43 from './project/cloud_project02_43.jpg';
-import cloud_project02_44 from './project/cloud_project02_44.jpg';
-import cloud_project02_45 from './project/cloud_project02_45.jpg';
-import cloud_project02_46 from './project/cloud_project02_46.jpg';
-import cloud_project02_47 from './project/cloud_project02_47.jpg';
-import cloud_project02_48 from './project/cloud_project02_48.jpg';
-import cloud_project02_49 from './project/cloud_project02_49.jpg';
-import cloud_project02_50 from './project/cloud_project02_50.jpg';
-import cloud_project02_51 from './project/cloud_project02_51.jpg';
-// import work01_01 from './work/work01_01.jpg';
+import cloud_project02_01 from '@/assets/img/project/cloud_project02_01.jpg';
+import cloud_project02_02 from '@/assets/img/project/cloud_project02_02.jpg';
+import cloud_project02_03 from '@/assets/img/project/cloud_project02_03.jpg';
+import cloud_project02_04 from '@/assets/img/project/cloud_project02_04.jpg';
+import cloud_project02_05 from '@/assets/img/project/cloud_project02_05.jpg';
+import cloud_project02_06 from '@/assets/img/project/cloud_project02_06.jpg';
+import cloud_project02_07 from '@/assets/img/project/cloud_project02_07.jpg';
+import cloud_project02_08 from '@/assets/img/project/cloud_project02_08.jpg';
+import cloud_project02_09 from '@/assets/img/project/cloud_project02_09.jpg';
+import cloud_project02_10 from '@/assets/img/project/cloud_project02_10.jpg';
+import cloud_project02_11 from '@/assets/img/project/cloud_project02_11.jpg';
+import cloud_project02_12 from '@/assets/img/project/cloud_project02_12.jpg';
+import cloud_project02_13 from '@/assets/img/project/cloud_project02_13.jpg';
+import cloud_project02_14 from '@/assets/img/project/cloud_project02_14.jpg';
+import cloud_project02_15 from '@/assets/img/project/cloud_project02_15.jpg';
+import cloud_project02_16 from '@/assets/img/project/cloud_project02_16.jpg';
+import cloud_project02_17 from '@/assets/img/project/cloud_project02_17.jpg';
+import cloud_project02_18 from '@/assets/img/project/cloud_project02_18.jpg';
+import cloud_project02_19 from '@/assets/img/project/cloud_project02_19.jpg';
+import cloud_project02_20 from '@/assets/img/project/cloud_project02_20.jpg';
+import cloud_project02_21 from '@/assets/img/project/cloud_project02_21.jpg';
+import cloud_project02_22 from '@/assets/img/project/cloud_project02_22.jpg';
+import cloud_project02_23 from '@/assets/img/project/cloud_project02_23.jpg';
+import cloud_project02_24 from '@/assets/img/project/cloud_project02_24.jpg';
+import cloud_project02_25 from '@/assets/img/project/cloud_project02_25.jpg';
+import cloud_project02_26 from '@/assets/img/project/cloud_project02_26.jpg';
+import cloud_project02_27 from '@/assets/img/project/cloud_project02_27.jpg';
+import cloud_project02_28 from '@/assets/img/project/cloud_project02_28.jpg';
+import cloud_project02_29 from '@/assets/img/project/cloud_project02_29.jpg';
+import cloud_project02_30 from '@/assets/img/project/cloud_project02_30.jpg';
+import cloud_project02_31 from '@/assets/img/project/cloud_project02_31.jpg';
+import cloud_project02_32 from '@/assets/img/project/cloud_project02_32.jpg';
+import cloud_project02_33 from '@/assets/img/project/cloud_project02_33.jpg';
+import cloud_project02_34 from '@/assets/img/project/cloud_project02_34.jpg';
+import cloud_project02_35 from '@/assets/img/project/cloud_project02_35.jpg';
+import cloud_project02_36 from '@/assets/img/project/cloud_project02_36.jpg';
+import cloud_project02_37 from '@/assets/img/project/cloud_project02_37.jpg';
+import cloud_project02_38 from '@/assets/img/project/cloud_project02_38.jpg';
+import cloud_project02_39 from '@/assets/img/project/cloud_project02_39.jpg';
+import cloud_project02_40 from '@/assets/img/project/cloud_project02_40.jpg';
+import cloud_project02_41 from '@/assets/img/project/cloud_project02_41.jpg';
+import cloud_project02_42 from '@/assets/img/project/cloud_project02_42.jpg';
+import cloud_project02_43 from '@/assets/img/project/cloud_project02_43.jpg';
+import cloud_project02_44 from '@/assets/img/project/cloud_project02_44.jpg';
+import cloud_project02_45 from '@/assets/img/project/cloud_project02_45.jpg';
+import cloud_project02_46 from '@/assets/img/project/cloud_project02_46.jpg';
+import cloud_project02_47 from '@/assets/img/project/cloud_project02_47.jpg';
+import cloud_project02_48 from '@/assets/img/project/cloud_project02_48.jpg';
+import cloud_project02_49 from '@/assets/img/project/cloud_project02_49.jpg';
+import cloud_project02_50 from '@/assets/img/project/cloud_project02_50.jpg';
+import cloud_project02_51 from '@/assets/img/project/cloud_project02_51.jpg';
+import work01_01 from '@/assets/img/work/work01_01.jpg';
+import work01_02 from '@/assets/img/work/work01_02.jpg';
+import work01_03 from '@/assets/img/work/work01_03.jpg';
+import work01_04 from '@/assets/img/work/work01_04.jpg';
+import work01_05 from '@/assets/img/work/work01_05.jpg';
+import work01_06 from '@/assets/img/work/work01_06.jpg';
+import work02_01 from '@/assets/img/work/work02_01.jpg';
+import work02_02 from '@/assets/img/work/work02_02.jpg';
+import work02_03 from '@/assets/img/work/work02_03.jpg';
+import work02_04 from '@/assets/img/work/work02_04.jpg';
+import work03_01 from '@/assets/img/work/work03_01.jpg';
+import work03_02 from '@/assets/img/work/work03_02.jpg';
+import work03_03 from '@/assets/img/work/work03_03.jpg';
+import work04_01 from '@/assets/img/work/work04_01.jpg';
+import work05_01 from '@/assets/img/work/work05_01.jpg';
 
 
 
@@ -159,6 +173,20 @@ export const IMAGES = {
   CLOUD_PROJECT02_49: cloud_project02_49,
   CLOUD_PROJECT02_50: cloud_project02_50,
   CLOUD_PROJECT02_51: cloud_project02_51,
-  // WORK01_01: work01_01,
+  WORK01_01: work01_01,
+  WORK01_02: work01_02,
+  WORK01_03: work01_03,
+  WORK01_04: work01_04,
+  WORK01_05: work01_05,
+  WORK01_06: work01_06,
+  WORK02_01: work02_01,
+  WORK02_02: work02_02,
+  WORK02_03: work02_03,
+  WORK02_04: work02_04,
+  WORK03_01: work03_01,
+  WORK03_02: work03_02,
+  WORK03_03: work03_03,
+  WORK04_01: work04_01,
+  WORK05_01: work05_01,
   
 };

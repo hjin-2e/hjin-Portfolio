@@ -247,7 +247,7 @@ section.sub{
   .modal-content {
     position: relative;
     width: 100%;
-    max-width: 900px;
+    max-width: 980px;
     max-height: calc(100svh - 200px);
     display: flex;
     flex-direction: column;
@@ -287,7 +287,7 @@ section.sub{
           flex: 2%;
           margin-top: 10px;
           a {
-            font-size: 2rem;
+            font-size: 1.6rem;
           }
         }
         .modal-img-item {

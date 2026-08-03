@@ -8,7 +8,7 @@ interface ProjectItem {
   category: string;
   description?: string;
   githubUrl: string;
-  pptUrl: string;
+  notionUrl: string;
   thumbnail: string;      
   modalImages?: string[];
 }
@@ -67,7 +67,7 @@ const Project = () => {
       category: '클라우드 | 인프라 · 대시보드 · 장애복구',
       description: 'Global Accelerator를 활용한 하이브리드 환경의 인프라 구축 관련 상세 내용입니다.',
       githubUrl: '',
-      pptUrl: '',
+      notionUrl: 'https://app.notion.com/p/rajinse/3a6b30fb662580f39d96f72822c95e5b',
       thumbnail: IMAGES.CLOUD_PROJECT01_01, // 카드 썸네일 이미지
       modalImages: cloudProject01Images, // 모달 출력용 이미지들
     },
@@ -77,7 +77,7 @@ const Project = () => {
       category: '클라우드 | 인프라 · 웹페이지 · 장애복구',
       description: '테라폼을 활용한 MSA 기반의 보안성과 가용성을 갖춘 하이브리드 철도 예매 플랫폼 구축 관련 작업 상세 내용입니다.',
       githubUrl: 'https://github.com/hjin-2e/Train_repo.git',
-      pptUrl: '',
+      notionUrl: 'https://app.notion.com/p/rajinse/MSA-3a6b30fb66258089a5edc7fdd4e404c7?v=082b30fb66258369a10e08221f920052',
       thumbnail: IMAGES.CLOUD_PROJECT02_01, // 카드 썸네일 이미지
       modalImages: cloudProject02Images, // 모달 출력용 이미지들
     },
@@ -129,7 +129,7 @@ const Project = () => {
             <p className="desc none">{selectedProject.description}</p>
 
             {/* 링크 버튼 영역 (링크가 하나라도 있을 때만 렌더링) */}
-            {(selectedProject.githubUrl || selectedProject.pptUrl) && (
+            {(selectedProject.githubUrl || selectedProject.notionUrl) && (
               <div className="modal-links" style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
                 {/* 1. githubUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
                 {selectedProject.githubUrl && (
@@ -139,9 +139,9 @@ const Project = () => {
                 )}
 
                 {/* 2. pptUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
-                {selectedProject.pptUrl && (
-                  <a href={selectedProject.pptUrl} target="_blank" rel="noopener noreferrer" className="link-btn ppt">
-                    📊 PPT 발표자료 보기
+                {selectedProject.notionUrl && (
+                  <a href={selectedProject.notionUrl} target="_blank" rel="noopener noreferrer" className="link-btn ppt">
+                    📂 Notion 바로가기
                   </a>
                 )}
               </div>
