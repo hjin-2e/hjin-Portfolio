@@ -78,6 +78,7 @@ import cloud_project02_48 from '@/assets/img/project/cloud_project02_48.jpg';
 import cloud_project02_49 from '@/assets/img/project/cloud_project02_49.jpg';
 import cloud_project02_50 from '@/assets/img/project/cloud_project02_50.jpg';
 import cloud_project02_51 from '@/assets/img/project/cloud_project02_51.jpg';
+
 import work01_01 from '@/assets/img/work/work01_01.jpg';
 import work01_02 from '@/assets/img/work/work01_02.jpg';
 import work01_03 from '@/assets/img/work/work01_03.jpg';
@@ -88,11 +89,17 @@ import work02_01 from '@/assets/img/work/work02_01.jpg';
 import work02_02 from '@/assets/img/work/work02_02.jpg';
 import work02_03 from '@/assets/img/work/work02_03.jpg';
 import work02_04 from '@/assets/img/work/work02_04.jpg';
+import work02_05 from '@/assets/img/work/work02_05.jpg';
+import work02_06 from '@/assets/img/work/work02_06.jpg';
 import work03_01 from '@/assets/img/work/work03_01.jpg';
 import work03_02 from '@/assets/img/work/work03_02.jpg';
 import work03_03 from '@/assets/img/work/work03_03.jpg';
 import work04_01 from '@/assets/img/work/work04_01.jpg';
+import work04_02 from '@/assets/img/work/work04_02.jpg';
 import work05_01 from '@/assets/img/work/work05_01.jpg';
+import work05_02 from '@/assets/img/work/work05_02.jpg';
+import work05_03 from '@/assets/img/work/work05_03.jpg';
+import work05_04 from '@/assets/img/work/work05_04.jpg';
 
 
 
@@ -183,10 +190,16 @@ export const IMAGES = {
   WORK02_02: work02_02,
   WORK02_03: work02_03,
   WORK02_04: work02_04,
+  WORK02_05: work02_05,
+  WORK02_06: work02_06,
   WORK03_01: work03_01,
   WORK03_02: work03_02,
   WORK03_03: work03_03,
   WORK04_01: work04_01,
+  WORK04_02: work04_02,
   WORK05_01: work05_01,
+  WORK05_02: work05_02,
+  WORK05_03: work05_03,
+  WORK05_04: work05_04,
   
 };

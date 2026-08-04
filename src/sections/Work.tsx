@@ -29,6 +29,8 @@ const work02Images = [
   IMAGES.WORK02_02,
   IMAGES.WORK02_03,
   IMAGES.WORK02_04,
+  IMAGES.WORK02_05,
+  IMAGES.WORK02_06,
 ];
 
 const work03Images = [
@@ -39,10 +41,14 @@ const work03Images = [
 
 const work04Images = [
   IMAGES.WORK04_01,
+  IMAGES.WORK04_02,
 ];
 
 const work05Images = [
   IMAGES.WORK05_01,
+  IMAGES.WORK05_02,
+  IMAGES.WORK05_03,
+  IMAGES.WORK05_04,
 ];
 
 const Work = () => {
@@ -176,7 +182,7 @@ const Work = () => {
 
             {selectedWork.modalImages && selectedWork.modalImages.length > 0 && (
               <div className="modal-img-list" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {selectedWork.modalImages.slice(1).map((imgSrc, index) => (
+                {selectedWork.modalImages.slice(0).map((imgSrc, index) => (
                   <div key={index} className="modal-img-item">
                     <img 
                       src={imgSrc} 

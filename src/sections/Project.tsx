@@ -150,7 +150,7 @@ const Project = () => {
             {/* 모달에 띄울 이미지들 출력 (slice(1) 추가됨) */}
             {selectedProject.modalImages && selectedProject.modalImages.length > 0 && (
               <div className="modal-img-list" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {selectedProject.modalImages.slice(1).map((imgSrc, index) => (
+                {selectedProject.modalImages.slice(0).map((imgSrc, index) => (
                   <div key={index} className="modal-img-item">
                     <img 
                       src={imgSrc} 
