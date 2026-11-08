@@ -4,7 +4,7 @@ import { IMAGES } from '@/assets/img';
 import Work from '@/sections/Work';
 import Project from '@/sections/Project';
 
-const skills = ['AWS', 'Azure', 'Terraform', 'CI/CD', 'HTML · CSS', 'JavaScript', 'Vue', 'Figma'];
+const skills = ["GitHub","JavaScript","React","Vue.js","Linux","AWS","Azure","VMware","AWS EKS","AWS Lambda","Kubernetes","Terraform","IaaS","Python","SaaS"];
 const jobs = [
   { company: '(주)메가스터디교육', period: '2023.04 — 2025.10', role: '웹 퍼블리싱 · 서비스 운영', summary: '메가스터디 러셀 웹사이트 운영 및 유지보수', tasks: ['러셀 웹사이트 퍼블리싱 및 운영·유지보수', '모집요강 프로젝트 개발 및 신규 사이트 구축', 'HTML, CSS, JavaScript, jQuery, Vue를 활용한 화면 구현'], tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Vue'] },
   { company: '(주)해올정보기술', period: '2020.12 — 2023.03', role: '웹 퍼블리싱 · 시스템 구축', summary: '공공 서비스와 업무 시스템의 사용자 화면 구축', tasks: ['차세대 한국유학시스템의 공식 포털 및 유학생 업무 관리 화면 구축', '공동연계 급여정보 시스템 사용자 화면 퍼블리싱', '판로정보 종합시스템 반응형 화면 구현 및 판판셀러 관리자 페이지 디자인', '벤처기업 확인 통합 시스템의 신청·평가·심의 화면 구현'], tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Figma'] },
