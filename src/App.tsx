@@ -122,7 +122,7 @@ function Career() {
       <div className="career-body">
         <h3>{job.summary}</h3>
         <h4>주요 업무 및 성과</h4><ul>{job.tasks.map(task => <li key={task}>{task}</li>)}</ul>
-        <h4>사용 기술</h4><Tags items={job.tags} />
+        <div className="career-tech"><h4>사용 기술</h4><Tags items={job.tags} /></div>
         {job.projects.length > 0 && <section className="career-projects" aria-labelledby={'career-projects-' + i}>
           <h4 id={'career-projects-' + i}>주요 프로젝트 및 성과</h4>
           {job.projects.map((project, index) => <article className="career-project" key={project.title}>
