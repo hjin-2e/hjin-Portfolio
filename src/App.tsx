@@ -7,9 +7,94 @@ import Project from '@/sections/Project';
 const navigation = [["about","소개"],["summary","요약"],["competencies","핵심 역량"],["achievements","핵심 성과"],["career","경력 요약"],["contact","연락처"]];
 const skills = ["AWS","Azure","Terraform","CI/CD","HTML · CSS","JavaScript","Vue.js","Figma","GitHub","React","Linux","VMware","AWS EKS","AWS Lambda","Kubernetes","IaaS","Python","SaaS"];
 const jobs = [
-  { company: '(주)메가스터디교육', period: '2023.04 — 2025.10', role: '웹 퍼블리싱 · 서비스 운영', summary: '메가스터디 러셀 웹사이트 운영 및 유지보수', tasks: ['러셀 웹사이트 퍼블리싱 및 운영·유지보수', '모집요강 프로젝트 개발 및 신규 사이트 구축', 'HTML, CSS, JavaScript, jQuery, Vue를 활용한 화면 구현'], tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Vue'] },
-  { company: '(주)해올정보기술', period: '2020.12 — 2023.03', role: '웹 퍼블리싱 · 시스템 구축', summary: '공공 서비스와 업무 시스템의 사용자 화면 구축', tasks: ['차세대 한국유학시스템의 공식 포털 및 유학생 업무 관리 화면 구축', '공동연계 급여정보 시스템 사용자 화면 퍼블리싱', '판로정보 종합시스템 반응형 화면 구현 및 판판셀러 관리자 페이지 디자인', '벤처기업 확인 통합 시스템의 신청·평가·심의 화면 구현'], tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Figma'] },
+  {
+    "company": "메가스터디교육(주)",
+    "period": "2023.04 — 2025.10",
+    "duration": "2년 7개월",
+    "role": "웹 퍼블리싱 및 프론트엔드 개발",
+    "summary": "교육 서비스 운영과 Vue.js 기반 프론트엔드 전환",
+    "tasks": [
+      "교육 서비스 사용자 사이트 및 관리자 시스템 운영·유지보수",
+      "기존 ASP 기반 화면을 Vue.js 컴포넌트로 전환하는 프로젝트에 직접 참여하여 프론트엔드 개발 수행",
+      "관리자 시스템 리뉴얼 프로젝트의 웹 퍼블리싱 및 프론트엔드 개발",
+      "신규 콘텐츠 페이지 제작 및 기존 서비스 UI 개선",
+      "운영 중인 서비스의 화면 오류 수정 및 기능 변경 요구사항 대응"
+    ],
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Vue.js"
+    ],
+    "projects": []
+  },
+  {
+    "company": "(주)해올정보기술",
+    "period": "2020.12 — 2023.03",
+    "duration": "2년 4개월",
+    "role": "공공 SI 웹 퍼블리싱 및 UI 기획",
+    "summary": "공공 정보시스템 구축 4건과 UI 기획·개발",
+    "tasks": [
+      "공공기관 정보시스템 구축 프로젝트 4건 참여",
+      "사용자 포털 및 관리자 시스템 UI 개발 및 기획",
+      "웹 접근성 및 브라우저 호환성 대응",
+      "서울사무실 PL 역할 수행 및 SI 사업부 신규 입사자 교육"
+    ],
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "jQuery",
+      "WebSquare",
+      "Sencha Ext JS"
+    ],
+    "projects": [
+      {
+        "title": "중소벤처확인 시스템 구축",
+        "client": "중소기업부",
+        "period": "2021.01 — 2021.06",
+        "tasks": [
+          "반응형 포털사이트 퍼블리싱 30% 담당",
+          "관리자 시스템 퍼블리싱 100% 수행",
+          "웹 접근성 및 브라우저 호환성 대응"
+        ]
+      },
+      {
+        "title": "판로정보 종합시스템 구축",
+        "client": "중소기업유통센터",
+        "period": "2021.08 — 2022.03",
+        "tasks": [
+          "사용자 포털 및 관리자 시스템 UI 개발",
+          "포털사이트 UI 개선 및 추가 기능 구현",
+          "관리자 시스템 UI 디자인 및 화면 구현",
+          "담당 퍼블리싱 작업 100% 완료"
+        ]
+      },
+      {
+        "title": "공동연계 급여정보 시스템 구축",
+        "client": "국민연금",
+        "period": "2022.04 — 2022.12",
+        "tasks": [
+          "관리자 시스템 UI 기획 및 개발",
+          "관리자 화면 개선 및 추가 기능 구현",
+          "서울사무실 PL 역할 수행 및 프로젝트 업무 조율",
+          "담당 퍼블리싱 작업 100% 완료"
+        ]
+      },
+      {
+        "title": "차세대 한국유학시스템 구축",
+        "client": "국제교육원",
+        "period": "2022.08 — 2023.01",
+        "tasks": [
+          "사용자 포털 및 관리자 시스템 UI 개선",
+          "반응형 화면 수정 및 기능 개선",
+          "웹 접근성 및 브라우저 호환성 대응"
+        ]
+      }
+    ]
+  }
 ];
+const careerCompetencies = ["약 5년간 공공 SI 및 교육 서비스 개발·운영 경험","ASP 기반 화면의 Vue.js 컴포넌트 전환 경험","사용자 및 관리자 시스템 개발·유지보수 경험","다양한 개발 환경에서의 요구사항 대응 및 문제 해결 역량","프로젝트 PL 및 신규 입사자 교육을 통한 협업·커뮤니케이션 역량"];
 function Heading({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
   return <div className="page-heading"><span className="eyebrow">{eyebrow}</span><h1>{title}<span className="mint">.</span></h1><p>{description}</p></div>;
 }
@@ -24,7 +109,32 @@ function Resume() {
   <section className="content-section"><div className="section-label">CERTIFICATIONS</div><h2>자격증</h2><div className="summary-grid"><div className="summary-row"><span>2026.04 취득</span><h3>리눅스마스터 2급</h3></div><div className="summary-row"><span>2026.03 취득</span><h3>네트워크관리사 2급</h3></div></div></section><section className="content-section"><div className="section-label">DOCUMENTS</div><h2>경험과 결과물, 더 자세히.</h2><DocumentLinks /></section></>;
 }
 function Career() {
-  return <><Heading eyebrow="CAREER DETAILS" title="경력기술서" description="회사별 역할과 담당 업무를 중심으로 정리한 실무 경험입니다." /><div className="page-tools"><span>WORK EXPERIENCE / 2 COMPANIES</span><button className="btn compact" onClick={() => window.print()}>인쇄 · PDF 저장 ↓</button></div><div className="career-list">{jobs.map((job, i) => <article className="career-card" key={job.company}><div className="career-side"><span className="eyebrow">0{i + 1}</span><h2>{job.company}</h2><p>{job.period}</p><span className="badge">{job.role}</span></div><div className="career-body"><h3>{job.summary}</h3><h4>담당 업무</h4><ul>{job.tasks.map(task => <li key={task}>{task}</li>)}</ul><h4>사용 기술</h4><Tags items={job.tags} /></div></article>)}</div><aside className="next-card"><div><span className="eyebrow">SEE THE WORK</span><h2>프로젝트 결과물이 궁금하다면</h2><p>실무 웹 작업과 클라우드 프로젝트를 포트폴리오에서 확인하세요.</p></div><Link className="btn" to="/portfolio">포트폴리오 보기 →</Link></aside></>;
+  return <>
+    <Heading eyebrow="CAREER DETAILS" title="경력기술서" description="공공 SI부터 교육 서비스까지, 약 5년간의 UI 기획·개발과 서비스 운영 경험입니다." />
+    <div className="page-tools"><span>WORK EXPERIENCE / 2 COMPANIES</span><button className="btn compact" onClick={() => window.print()}>인쇄 · PDF 저장 ↓</button></div>
+    <section className="career-competencies" aria-labelledby="career-competencies-title">
+      <span className="eyebrow">CORE COMPETENCIES</span>
+      <h2 id="career-competencies-title">핵심 역량</h2>
+      <ul>{careerCompetencies.map(item => <li key={item}>{item}</li>)}</ul>
+    </section>
+    <div className="career-list">{jobs.map((job, i) => <article className="career-card" key={job.company}>
+      <div className="career-side"><span className="eyebrow">0{i + 1} / EXPERIENCE</span><h2>{job.company}</h2><p>{job.period}<br />{job.duration}</p><span className="badge">{job.role}</span></div>
+      <div className="career-body">
+        <h3>{job.summary}</h3>
+        <h4>주요 업무 및 성과</h4><ul>{job.tasks.map(task => <li key={task}>{task}</li>)}</ul>
+        <h4>사용 기술</h4><Tags items={job.tags} />
+        {job.projects.length > 0 && <section className="career-projects" aria-labelledby={'career-projects-' + i}>
+          <h4 id={'career-projects-' + i}>주요 프로젝트 및 성과</h4>
+          {job.projects.map((project, index) => <article className="career-project" key={project.title}>
+            <span className="eyebrow">PROJECT 0{index + 1}</span><h3>{project.title}</h3>
+            <dl className="career-project-meta"><div><dt>고객사</dt><dd>{project.client}</dd></div><div><dt>기간</dt><dd>{project.period}</dd></div></dl>
+            <ul>{project.tasks.map(task => <li key={task}>{task}</li>)}</ul>
+          </article>)}
+        </section>}
+      </div>
+    </article>)}</div>
+    <aside className="next-card"><div><span className="eyebrow">SEE THE WORK</span><h2>프로젝트 결과물이 궁금하다면</h2><p>실무 웹 작업과 클라우드 프로젝트를 포트폴리오에서 확인하세요.</p></div><Link className="btn" to="/portfolio">포트폴리오 보기 →</Link></aside>
+  </>;
 }
 function Portfolio() {
   const [filter, setFilter] = useState('전체');
