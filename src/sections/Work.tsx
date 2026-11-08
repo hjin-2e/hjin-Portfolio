@@ -1,5 +1,6 @@
 import { useState, type MouseEvent } from 'react';
-import Modal from '@/components/Modal'; 
+import Modal from '@/components/Modal';
+import { PortfolioDetail, PortfolioPrintProject, type PortfolioDetailData } from '@/components/PortfolioDetail'; 
 import { IMAGES } from '@/assets/img';
 
 interface WorkItem {
@@ -124,95 +125,18 @@ const Work = () => {
     setSelectedWork(item);
   };
 
-  return (
-    <section id="work" className="sec sec02">
-      <div className="sec-inner">
-        <h3 className="sec-tit">웹 퍼블리싱</h3>
-        <div className="work-wrap">
-          <ul className="work-list">
-            {workList.map((item) => (
-              <li key={item.id}>
-                <a
-                  href="#none"
-                  onClick={(e) => handleCardClick(e, item)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <div className="work-img">
-                    {/* 카드 썸네일 출력 */}
-                    <img loading="lazy" src={item.thumbnail} alt={item.title} />
-                  </div>
-                  <div className="work-txt">
-                    <h5>{item.title}</h5>
-                    <p>{item.category}</p>
-                  </div>
-                </a>
-                <div className="print-only portfolio-print-details">
-                  <dl><dt>기간</dt><dd>{item.period}</dd><dt>사용 기술</dt><dd>{item.skill}</dd><dt>담당 범위</dt><dd>{item.contribution}</dd></dl>
-                  <p>{item.description}</p>
-                  <a href={item.notionUrl}>프로젝트 상세 자료 · Notion ↗</a>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="print-only portfolio-image-appendix">
-            {workList.map(item => item.modalImages?.map((src, index) => (
-              <figure className="portfolio-print-slide" key={item.id + '-' + index}>
-                <figcaption><strong>{item.title}</strong><span>상세 이미지 {index + 1} / {item.modalImages?.length}</span></figcaption>
-                <img src={src} loading="lazy" alt={item.title + ' 상세 이미지 ' + (index + 1)} />
-              </figure>
-            )))}
-          </div>
-        </div>
-      </div>
-
-      {/* 모달 영역 */}
-      <Modal
-        isOpen={!!selectedWork}
-        onClose={() => setSelectedWork(null)}
-        title={selectedWork?.title}
-      >
-        {selectedWork && (
-          <div className="modal-content-wrap">
-            {/* <p className="category"><strong>구분:</strong> {selectedWork.category}</p> */}
-            <dl className="modal-item-info">
-              <dt className="ml0">프로젝트 기간</dt>
-              <dd>{selectedWork?.period}</dd>
-              <dt>기술 스택</dt>
-              <dd>{selectedWork?.skill}</dd>
-              <dt>기여도</dt>
-              <dd>{selectedWork?.contribution }</dd>
-            </dl>
-            <p className="desc">{selectedWork.description}</p>
-
-            {/* 링크 버튼 영역 (링크가 하나라도 있을 때만 렌더링) */}
-            {(selectedWork.notionUrl) && (
-              <div className="modal-links">
-                {selectedWork.notionUrl && (
-                  <a href={selectedWork.notionUrl} target="_blank" rel="noopener noreferrer" className="link-btn notion">📂 Notion 바로가기</a>
-                )}
-              </div>
-            )}
-
-            {selectedWork.modalImages && selectedWork.modalImages.length > 0 && (
-              <div className="modal-img-list" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {selectedWork.modalImages.slice(0).map((imgSrc, index) => (
-                  <div key={index} className="modal-img-item">
-                    <img 
-                      loading="lazy" src={imgSrc}
-                      /* 첫 번째 이미지를 제외했으므로, 텍스트 상으로는 2번째 이미지부터 시작하도록 인덱스 조정 (선택사항) */
-                      alt={`${selectedWork.title} 이미지 ${index + 1}`} 
-                      style={{ width: '100%', height: 'auto', borderRadius: '4px' }}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-
-          </div>
-        )}
-      </Modal>
-    </section>
-  );
+  const details = (item: WorkItem): PortfolioDetailData => ({
+    title: item.title, category: item.category, description: item.description,
+    metadata: [{ label: item.id === 1 ? '재직 기간' : '프로젝트 기간', value: item.period.replace(' (재직 기간)', '') }, { label: '사용 기술', value: item.skill }, { label: '담당 범위', value: item.contribution }],
+    links: [{ label: 'Notion 상세 자료', url: item.notionUrl }],
+    images: item.modalImages ?? [],
+  });
+  return <section id="work" className="sec sec02">
+    <div className="sec-inner"><h3 className="sec-tit">웹 퍼블리싱</h3>
+      <ul className="work-list">{workList.map(item => <li key={item.id}><a href="#none" onClick={event => handleCardClick(event, item)}><div className="work-img"><img loading="lazy" src={item.thumbnail} alt={item.title} /></div><div className="work-txt"><h5>{item.title}</h5><p>{item.category}</p></div></a></li>)}</ul>
+      <div className="portfolio-print-projects">{workList.map(item => <PortfolioPrintProject key={item.id} data={details(item)} />)}</div>
+    </div>
+    <Modal isOpen={!!selectedWork} onClose={() => setSelectedWork(null)} title={selectedWork?.title}>{selectedWork && <PortfolioDetail data={details(selectedWork)} />}</Modal>
+  </section>;
 };
-
 export default Work;

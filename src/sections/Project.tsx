@@ -1,5 +1,6 @@
 import { useState, type MouseEvent } from 'react';
-import Modal from '@/components/Modal'; 
+import Modal from '@/components/Modal';
+import { PortfolioDetail, PortfolioPrintProject, type PortfolioDetailData } from '@/components/PortfolioDetail'; 
 import { IMAGES } from '@/assets/img';
 
 interface ProjectItem {
@@ -94,97 +95,18 @@ const Project = () => {
     setSelectedProject(item);
   };
 
-  return (
-    <section id="project" className="sec sec03">
-      <div className="sec-inner">
-        <h3 className="sec-tit">클라우드 프로젝트</h3>
-        <div className="project-wrap">
-          <ul className="project-list">
-            {projectList.map((item) => (
-              <li key={item.id}>
-                <a
-                  href="#none"
-                  onClick={(e) => handleCardClick(e, item)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <div className="project-img">
-                    {/* 카드 썸네일 출력 */}
-                    <img loading="lazy" src={item.thumbnail} alt={item.title} />
-                  </div>
-                  <div className="project-txt">
-                    <h5>{item.title}</h5>
-                    <p>{item.category}</p>
-                  </div>
-                </a>
-                <div className="print-only portfolio-print-details">
-                  <dl><dt>사용 기술</dt><dd>{item.skills}</dd>{item.role && <><dt>담당 역할</dt><dd>{item.role}</dd></>}</dl>
-                  <p>{item.description}</p>
-                  <div className="portfolio-print-links">{item.githubUrl && <a href={item.githubUrl}>소스 코드 · GitHub ↗</a>}<a href={item.notionUrl}>프로젝트 상세 자료 · Notion ↗</a></div>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="print-only portfolio-image-appendix">
-            {projectList.map(item => item.modalImages?.map((src, index) => (
-              <figure className="portfolio-print-slide" key={item.id + '-' + index}>
-                <figcaption><strong>{item.title}</strong><span>상세 이미지 {index + 1} / {item.modalImages?.length}</span></figcaption>
-                <img src={src} loading="lazy" alt={item.title + ' 상세 이미지 ' + (index + 1)} />
-              </figure>
-            )))}
-          </div>
-        </div>
-      </div>
-
-      {/* 모달 영역 */}
-      <Modal
-        isOpen={!!selectedProject}
-        onClose={() => setSelectedProject(null)}
-        title={selectedProject?.title}
-      >
-        {selectedProject && (
-          <div className="modal-content-wrap">
-            <p className="category none"><strong>구분:</strong> {selectedProject.category}</p>
-            <p className="desc none">{selectedProject.description}</p>
-
-            {/* 링크 버튼 영역 (링크가 하나라도 있을 때만 렌더링) */}
-            {(selectedProject.githubUrl || selectedProject.notionUrl) && (
-              <div className="modal-links" style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
-                {/* 1. githubUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
-                {selectedProject.githubUrl && (
-                  <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="link-btn github">
-                    📂 GitHub 바로가기
-                  </a>
-                )}
-
-                {/* 2. pptUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
-                {selectedProject.notionUrl && (
-                  <a href={selectedProject.notionUrl} target="_blank" rel="noopener noreferrer" className="link-btn ppt">
-                    📂 Notion 바로가기
-                  </a>
-                )}
-              </div>
-            )}
-
-            {/* 모달에 띄울 이미지들 출력 (slice(1) 추가됨) */}
-            {selectedProject.modalImages && selectedProject.modalImages.length > 0 && (
-              <div className="modal-img-list" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {selectedProject.modalImages.slice(0).map((imgSrc, index) => (
-                  <div key={index} className="modal-img-item">
-                    <img 
-                      loading="lazy" src={imgSrc}
-                      /* 첫 번째 이미지를 제외했으므로, 텍스트 상으로는 2번째 이미지부터 시작하도록 인덱스 조정 (선택사항) */
-                      alt={`${selectedProject.title} 이미지 ${index + 2}`} 
-                      style={{ width: '100%', height: 'auto', borderRadius: '4px' }}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </Modal>
-    </section>
-  );
+  const details = (item: ProjectItem): PortfolioDetailData => ({
+    title: item.title, category: item.category, description: item.description,
+    metadata: [{ label: '사용 기술', value: item.skills }, ...(item.role ? [{ label: '담당 역할', value: item.role }] : [])],
+    links: [...(item.githubUrl ? [{ label: 'GitHub', url: item.githubUrl }] : []), { label: 'Notion 상세 자료', url: item.notionUrl }],
+    images: item.modalImages ?? [],
+  });
+  return <section id="project" className="sec sec03">
+    <div className="sec-inner"><h3 className="sec-tit">클라우드 프로젝트</h3>
+      <ul className="project-list">{projectList.map(item => <li key={item.id}><a href="#none" onClick={event => handleCardClick(event, item)}><div className="project-img"><img loading="lazy" src={item.thumbnail} alt={item.title} /></div><div className="project-txt"><h5>{item.title}</h5><p>{item.category}</p></div></a></li>)}</ul>
+      <div className="portfolio-print-projects">{projectList.map(item => <PortfolioPrintProject key={item.id} data={details(item)} />)}</div>
+    </div>
+    <Modal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} title={selectedProject?.title}>{selectedProject && <PortfolioDetail data={details(selectedProject)} />}</Modal>
+  </section>;
 };
-
 export default Project;

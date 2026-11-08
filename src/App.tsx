@@ -143,7 +143,7 @@ function Portfolio() {
     setIsPreparingPrint(true);
     try {
       await document.fonts.ready;
-      const images = document.querySelectorAll<HTMLImageElement>('.portfolio-document .project-img img, .portfolio-document .work-img img, .portfolio-document .portfolio-image-appendix img');
+      const images = document.querySelectorAll<HTMLImageElement>('.portfolio-document .project-img img, .portfolio-document .work-img img, .portfolio-document .portfolio-print-project img');
       await Promise.all(Array.from(images, image => new Promise<void>((resolve, reject) => {
         const cleanup = () => {
           image.removeEventListener('load', onLoad);
@@ -167,7 +167,7 @@ function Portfolio() {
       setIsPreparingPrint(false);
     }
   };
-  return <div className="portfolio-document"><Heading eyebrow="SELECTED WORK" title="포트폴리오" description="클라우드 인프라부터 사용자 화면까지, 직접 만들어온 프로젝트입니다." /><div className="page-tools portfolio-print-tools"><span>선택한 분류의 프로젝트와 상세 이미지 전체를 출력합니다.</span><button className="btn compact" disabled={isPreparingPrint} onClick={printPortfolio}>{isPreparingPrint ? '이미지 준비 중…' : '인쇄 · PDF 저장 ↓'}</button></div><p className="print-only portfolio-print-category">분류: {filter} · {filter === '전체' ? '7' : filter === '클라우드' ? '2' : '5'}개 프로젝트</p><div className="filter-bar"><div className="filters" aria-label="프로젝트 분류">{['전체', '클라우드', '웹 퍼블리싱'].map(item => <button key={item} aria-pressed={filter === item} className={filter === item ? 'active' : ''} onClick={() => setFilter(item)}>{item}</button>)}</div><span>{filter === '전체' ? '07' : filter === '클라우드' ? '02' : '05'} PROJECTS</span></div>{filter !== '웹 퍼블리싱' && <Project />}{filter !== '클라우드' && <Work />}<aside className="next-card"><div><span className="eyebrow">BEHIND THE WORK</span><h2>회사별 업무 경험 보기</h2></div><Link className="btn" to="/career">경력기술서 보기 →</Link></aside></div>;
+  return <div className="portfolio-document"><Heading eyebrow="SELECTED WORK" title="포트폴리오" description="클라우드 인프라부터 사용자 화면까지, 직접 만들어온 프로젝트입니다." /><div className="page-tools portfolio-print-tools"><span>선택한 분류의 프로젝트를 설명과 이미지 순서로 출력합니다.</span><button className="btn compact" disabled={isPreparingPrint} onClick={printPortfolio}>{isPreparingPrint ? '이미지 준비 중…' : '인쇄 · PDF 저장 ↓'}</button></div><p className="print-only portfolio-print-category">분류: {filter} · {filter === '전체' ? '7' : filter === '클라우드' ? '2' : '5'}개 프로젝트</p><div className="filter-bar"><div className="filters" aria-label="프로젝트 분류">{['전체', '클라우드', '웹 퍼블리싱'].map(item => <button key={item} aria-pressed={filter === item} className={filter === item ? 'active' : ''} onClick={() => setFilter(item)}>{item}</button>)}</div><span>{filter === '전체' ? '07' : filter === '클라우드' ? '02' : '05'} PROJECTS</span></div>{filter !== '웹 퍼블리싱' && <Project />}{filter !== '클라우드' && <Work />}<aside className="next-card"><div><span className="eyebrow">BEHIND THE WORK</span><h2>회사별 업무 경험 보기</h2></div><Link className="btn" to="/career">경력기술서 보기 →</Link></aside></div>;
 }
 function Site() {
   const { pathname, hash } = useLocation();
