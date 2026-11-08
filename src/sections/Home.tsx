@@ -1,4 +1,3 @@
-import React from 'react';
 import MainLogo from '@/components/MainLogo';
 
 const Home = () => {

@@ -1,5 +1,6 @@
-import React, { useState, MouseEvent } from 'react';
-import Modal from '@/components/Modal'; 
+import { useState, type MouseEvent } from 'react';
+import Modal from '@/components/Modal';
+import { PortfolioDetail, PortfolioPrintProject, type PortfolioDetailData } from '@/components/PortfolioDetail'; 
 import { IMAGES } from '@/assets/img';
 
 interface ProjectItem {
@@ -7,6 +8,9 @@ interface ProjectItem {
   title: string;
   category: string;
   description?: string;
+  role?: string;
+  skills: string;
+  highlights: string[];
   githubUrl: string;
   notionUrl: string;
   thumbnail: string;      
@@ -65,7 +69,9 @@ const Project = () => {
       id: 1,
       title: 'Global Accelerator를 활용한 하이브리드 환경의 인프라 구축',
       category: '클라우드 | 인프라 · 대시보드 · 장애복구',
-      description: 'Global Accelerator를 활용한 하이브리드 환경의 인프라 구축 관련 상세 내용입니다.',
+      description: "서울·싱가포르의 기존 IDC와 AWS를 연결해 웹 서비스를 클라우드로 이전하고, 데이터베이스는 온프레미스와 연동하도록 구성한 하이브리드 인프라 프로젝트입니다. 리전별 서비스 연결과 장애 발생 시 서비스 전환을 함께 검토했습니다.",
+      highlights: ["Global Accelerator와 ALB를 활용해 리전별 웹 서비스 접근 경로 구성","Site-to-Site VPN·Transit Gateway 기반 클라우드와 IDC 네트워크 연결, Route 53·DB 복제를 포함한 구성","서울·싱가포르 장애 전환 시나리오와 DNS 쿼리·Ping 테스트를 통한 연결 및 복구 동작 확인"],
+      skills: 'AWS · Global Accelerator · 하이브리드 네트워크 · 장애복구',
       githubUrl: '',
       notionUrl: 'https://app.notion.com/p/rajinse/3a6b30fb662580f39d96f72822c95e5b',
       thumbnail: IMAGES.CLOUD_PROJECT01_01, // 카드 썸네일 이미지
@@ -75,7 +81,10 @@ const Project = () => {
       id: 2,
       title: '테라폼을 활용한 MSA 기반의 보안성과 가용성을 갖춘 하이브리드 철도 예매 플랫폼 구축',
       category: '클라우드 | 인프라 · 웹페이지 · 장애복구',
-      description: '테라폼을 활용한 MSA 기반의 보안성과 가용성을 갖춘 하이브리드 철도 예매 플랫폼 구축 관련 작업 상세 내용입니다.',
+      description: "철도 예매 서비스의 대량 트래픽과 서비스 연속성을 고려해 AWS·Azure 하이브리드 환경에 MSA 기반 플랫폼을 구축한 4인 팀 프로젝트입니다. 팀장으로 참여하여 Terraform 기반 인프라 구성과 EKS 운영 환경, 사용자 인증·이메일 연동 및 프론트엔드 구현을 담당했습니다.",
+      highlights: ["Terraform으로 AWS·Azure 인프라를 코드로 구성하고 EKS에 서비스 실행 환경 구현","Kubernetes HPA를 활용한 워크로드 확장 구성","Cognito 기반 사용자 인증, SES 이메일 연동 및 예매 서비스 프론트엔드 구현"],
+      role: '팀장 · Terraform 기반 AWS/Azure IaC · EKS · Kubernetes HPA · Cognito · SES · 프론트엔드',
+      skills: 'Terraform · AWS · Azure · Amazon EKS · Kubernetes · Amazon Cognito · Amazon SES',
       githubUrl: 'https://github.com/hjin-2e/Train_repo.git',
       notionUrl: 'https://app.notion.com/p/rajinse/MSA-3a6b30fb66258089a5edc7fdd4e404c7?v=082b30fb66258369a10e08221f920052',
       thumbnail: IMAGES.CLOUD_PROJECT02_01, // 카드 썸네일 이미지
@@ -89,84 +98,18 @@ const Project = () => {
     setSelectedProject(item);
   };
 
-  return (
-    <section id="project" className="sec sec03">
-      <div className="sec-inner">
-        <h3 className="sec-tit">Project</h3>
-        <div className="project-wrap">
-          <ul className="project-list">
-            {projectList.map((item) => (
-              <li key={item.id}>
-                <a
-                  href="#none"
-                  onClick={(e) => handleCardClick(e, item)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <div className="project-img">
-                    {/* 카드 썸네일 출력 */}
-                    <img src={item.thumbnail} alt={item.title} />
-                  </div>
-                  <div className="project-txt">
-                    <h5>{item.title}</h5>
-                    <p>{item.category}</p>
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* 모달 영역 */}
-      <Modal
-        isOpen={!!selectedProject}
-        onClose={() => setSelectedProject(null)}
-        title={selectedProject?.title}
-      >
-        {selectedProject && (
-          <div className="modal-content-wrap">
-            <p className="category none"><strong>구분:</strong> {selectedProject.category}</p>
-            <p className="desc none">{selectedProject.description}</p>
-
-            {/* 링크 버튼 영역 (링크가 하나라도 있을 때만 렌더링) */}
-            {(selectedProject.githubUrl || selectedProject.notionUrl) && (
-              <div className="modal-links" style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
-                {/* 1. githubUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
-                {selectedProject.githubUrl && (
-                  <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="link-btn github">
-                    📂 GitHub 바로가기
-                  </a>
-                )}
-
-                {/* 2. pptUrl 값이 있을 때만 버튼 생성 (변수명 selectedProject로 수정됨) */}
-                {selectedProject.notionUrl && (
-                  <a href={selectedProject.notionUrl} target="_blank" rel="noopener noreferrer" className="link-btn ppt">
-                    📂 Notion 바로가기
-                  </a>
-                )}
-              </div>
-            )}
-
-            {/* 모달에 띄울 이미지들 출력 (slice(1) 추가됨) */}
-            {selectedProject.modalImages && selectedProject.modalImages.length > 0 && (
-              <div className="modal-img-list" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {selectedProject.modalImages.slice(0).map((imgSrc, index) => (
-                  <div key={index} className="modal-img-item">
-                    <img 
-                      src={imgSrc} 
-                      /* 첫 번째 이미지를 제외했으므로, 텍스트 상으로는 2번째 이미지부터 시작하도록 인덱스 조정 (선택사항) */
-                      alt={`${selectedProject.title} 이미지 ${index + 2}`} 
-                      style={{ width: '100%', height: 'auto', borderRadius: '4px' }}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </Modal>
-    </section>
-  );
+  const details = (item: ProjectItem): PortfolioDetailData => ({
+    title: item.title, category: item.category, description: item.description, highlights: item.highlights,
+    metadata: [{ label: '사용 기술', value: item.skills }, ...(item.role ? [{ label: '담당 역할', value: item.role }] : [])],
+    links: [...(item.githubUrl ? [{ label: 'GitHub', url: item.githubUrl }] : []), { label: 'Notion 상세 자료', url: item.notionUrl }],
+    images: item.modalImages ?? [],
+  });
+  return <section id="project" className="sec sec03">
+    <div className="sec-inner"><h3 className="sec-tit">클라우드 프로젝트</h3>
+      <ul className="project-list">{projectList.map(item => <li key={item.id}><a href="#none" onClick={event => handleCardClick(event, item)}><div className="project-img"><img loading="lazy" src={item.thumbnail} alt={item.title} /></div><div className="project-txt"><h5>{item.title}</h5><p>{item.category}</p></div></a></li>)}</ul>
+      <div className="portfolio-print-projects">{projectList.map(item => <PortfolioPrintProject key={item.id} data={details(item)} />)}</div>
+    </div>
+    <Modal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} title={selectedProject?.title}>{selectedProject && <PortfolioDetail data={details(selectedProject)} />}</Modal>
+  </section>;
 };
-
 export default Project;

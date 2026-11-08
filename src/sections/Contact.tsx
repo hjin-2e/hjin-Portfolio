@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Contact = () => {
   const email = "hjin201123@gmail.com";
@@ -20,14 +20,11 @@ const Contact = () => {
       { threshold: 0.3 } // 섹션이 30% 이상 보일 때 작동
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    const container = containerRef.current;
+    if (container) observer.observe(container);
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
+      if (container) observer.unobserve(container);
     };
   }, []);
 
