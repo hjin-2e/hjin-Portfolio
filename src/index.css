@@ -155,3 +155,18 @@ dialog.modal-overlay{margin:0;border:0;width:100%;height:100%;max-width:none;max
   .portfolio-image-pair img{display:block;width:100%;height:110mm;object-fit:contain;object-position:center;background:#fff}
   .portfolio-project-page.is-first .portfolio-image-pair img{height:78mm}
 }
+
+/* Project narratives and clean, unnumbered image layouts. */
+.portfolio-detail-highlights{margin-top:22px}
+.portfolio-detail-highlights h3{font-size:15px;margin-bottom:12px}
+.portfolio-detail-highlights li{position:relative;padding-left:14px;margin:8px 0;color:#bac5d1;font-size:13px;line-height:1.8}
+.portfolio-detail-highlights li:before{content:'·';position:absolute;left:0;color:var(--mint)}
+@media print{
+  .portfolio-project-page .portfolio-detail-links a[href*="notion."]{display:none}
+  .portfolio-project-page .portfolio-detail-highlights{margin-top:8px}
+  .portfolio-project-page .portfolio-detail-highlights h3{font-size:10px;margin:0 0 4px;color:#171717}
+  .portfolio-project-page .portfolio-detail-highlights li{font-size:10px;line-height:1.6;margin:3px 0;color:#333}
+  .portfolio-project-page-header>div{width:100%}
+  .portfolio-image-pair{gap:12px}
+  .portfolio-project-page.is-first .portfolio-image-pair img{height:73mm}
+}
