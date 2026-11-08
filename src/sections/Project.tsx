@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import { useState, type MouseEvent } from 'react';
 import Modal from '@/components/Modal'; 
 import { IMAGES } from '@/assets/img';
 
@@ -92,7 +92,7 @@ const Project = () => {
   return (
     <section id="project" className="sec sec03">
       <div className="sec-inner">
-        <h3 className="sec-tit">Project</h3>
+        <h3 className="sec-tit">클라우드 프로젝트</h3>
         <div className="project-wrap">
           <ul className="project-list">
             {projectList.map((item) => (
@@ -104,7 +104,7 @@ const Project = () => {
                 >
                   <div className="project-img">
                     {/* 카드 썸네일 출력 */}
-                    <img src={item.thumbnail} alt={item.title} />
+                    <img loading="lazy" src={item.thumbnail} alt={item.title} />
                   </div>
                   <div className="project-txt">
                     <h5>{item.title}</h5>
@@ -153,7 +153,7 @@ const Project = () => {
                 {selectedProject.modalImages.slice(0).map((imgSrc, index) => (
                   <div key={index} className="modal-img-item">
                     <img 
-                      src={imgSrc} 
+                      loading="lazy" src={imgSrc}
                       /* 첫 번째 이미지를 제외했으므로, 텍스트 상으로는 2번째 이미지부터 시작하도록 인덱스 조정 (선택사항) */
                       alt={`${selectedProject.title} 이미지 ${index + 2}`} 
                       style={{ width: '100%', height: 'auto', borderRadius: '4px' }}

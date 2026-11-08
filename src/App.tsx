@@ -1,73 +1,37 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import { useEffect, useState } from 'react';
+import { HashRouter, NavLink, Link, Route, Routes, useLocation } from 'react-router-dom';
+import { IMAGES } from '@/assets/img';
+import Work from '@/sections/Work';
+import Project from '@/sections/Project';
 
-// sections
-import Home from "@/sections/Home";
-import AboutMe from "@/sections/About";
-import Work from "@/sections/Work";
-import Project from "@/sections/Project";
-import Contact from "@/sections/Contact";
-
-const Layout = () => {
-  const [isHeaderOn, setIsHeaderOn] = useState(false);
-  const aboutRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // About Me 섹션이 화면 상단에 진입하거나 감지될 때 (rootMargin으로 타이밍 조절 가능)
-        if (entry.isIntersecting) {
-          setIsHeaderOn(true);
-        } else {
-          // Home 섹션 영역(About Me 위쪽)으로 다시 올라가면 on 클래스 제거
-          if (entry.boundingClientRect.top > 0) {
-            setIsHeaderOn(false);
-          }
-        }
-      },
-      { 
-        rootMargin: "-80px 0px 0px 0px",
-        threshold: 0 
-      }
-    );
-
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
-    }
-
-    return () => {
-      if (aboutRef.current) observer.unobserve(aboutRef.current);
-    };
-  }, []);
-
-  return (
-    <div className="wrapper">
-      {/* 1. Header에 상태값 전달 */}
-      <Header isFixed={isHeaderOn} />
-      <Home />
-      {/* 2. 감지할 AboutMe 섹션을 div로 감싸거나 ref를 주입할 수 있도록 설정 */}
-      <div ref={aboutRef}>
-        <AboutMe />
-      </div>
-      <Work />
-      <Project />
-      <Contact />
-      <Footer />
-    </div>
-  );
-};
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-  },
-]);
-
-const App = () => {
-  return <RouterProvider router={router} />;
-};
-
-export default App;
+const skills = ['AWS', 'Azure', 'Terraform', 'CI/CD', 'HTML · CSS', 'JavaScript', 'Vue', 'Figma'];
+const jobs = [
+  { company: '(주)메가스터디교육', period: '2023.04 — 2025.10', role: '웹 퍼블리싱 · 서비스 운영', summary: '메가스터디 러셀 웹사이트 운영 및 유지보수', tasks: ['러셀 웹사이트 퍼블리싱 및 운영·유지보수', '모집요강 프로젝트 개발 및 신규 사이트 구축', 'HTML, CSS, JavaScript, jQuery, Vue를 활용한 화면 구현'], tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Vue'] },
+  { company: '(주)해올정보기술', period: '2020.12 — 2023.03', role: '웹 퍼블리싱 · 시스템 구축', summary: '공공 서비스와 업무 시스템의 사용자 화면 구축', tasks: ['차세대 한국유학시스템의 공식 포털 및 유학생 업무 관리 화면 구축', '공동연계 급여정보 시스템 사용자 화면 퍼블리싱', '판로정보 종합시스템 반응형 화면 구현 및 판판셀러 관리자 페이지 디자인', '벤처기업 확인 통합 시스템의 신청·평가·심의 화면 구현'], tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Figma'] },
+];
+function Heading({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
+  return <div className="page-heading"><span className="eyebrow">{eyebrow}</span><h1>{title}<span className="mint">.</span></h1><p>{description}</p></div>;
+}
+function Tags({ items }: { items: string[] }) { return <div className="tags">{items.map(item => <span key={item}>{item}</span>)}</div>; }
+function DocumentLinks() {
+  return <div className="document-grid"><Link className="document-card" to="/career"><span className="doc-icon">01 / CAREER</span><h3>경력기술서 <span>↗</span></h3><p>어떤 환경에서, 어떤 일을 했는지.<br />회사별 담당 업무와 수행 경험을 정리했습니다.</p><span className="text-link">경력 자세히 보기 →</span></Link><Link className="document-card" to="/portfolio"><span className="doc-icon purple">02 / PORTFOLIO</span><h3>포트폴리오 <span>↗</span></h3><p>무엇을 만들고, 어떻게 구현했는지.<br />클라우드와 웹 프로젝트의 결과물을 소개합니다.</p><span className="text-link">프로젝트 살펴보기 →</span></Link></div>;
+}
+function Resume() {
+  return <><section className="hero"><span className="badge"><span className="status-dot" /> CLOUD ENGINEER · WEB PUBLISHER</span><p className="hero-intro">안녕하세요, 이하진입니다.</p><h1>사용자 경험에서<br /><span className="gradient-text">클라우드 인프라까지.</span></h1><p className="hero-desc">화면을 만드는 경험에서, 서비스를 지탱하는 기술로.<br />서비스 전반을 이해하고 안정적인 운영 환경을 만드는<br className="desktop-break" /> 클라우드 엔지니어를 지향합니다.</p><div className="actions"><Link className="btn primary" to="/career">경력기술서 보기 <span>↗</span></Link><Link className="btn" to="/portfolio">포트폴리오 보기 <span>→</span></Link></div><div className="hero-bottom"><span>DESIGN THE EXPERIENCE. BUILD THE FOUNDATION.</span><a href="#/#about" onClick={e => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}>SCROLL TO EXPLORE ↓</a></div></section>
+  <section id="about" className="content-section"><div className="section-label">01 / ABOUT ME</div><div className="about-grid"><div><h2>서비스를 넓게 보고,<br />더 나은 방식을 고민합니다.</h2><p>웹 퍼블리셔로 사용자와 가장 가까운 영역을 경험했습니다. 이후 서비스가 안정적으로 운영되고 빠르게 배포되는 환경의 중요성을 깨닫고 클라우드 엔지니어의 길을 선택했습니다.</p><p>클라이언트와 개발팀의 요구를 이해하고, 효율적인 CI/CD 환경과 IaC 기반 자동화를 통해 반복 작업을 줄이는 것에 가치를 두고 있습니다.</p><a className="text-link" href="https://app.notion.com/p/rajinse/1e6b30fb662582e8a691817d15cf4fd8?source=copy_link" target="_blank" rel="noreferrer">자기소개 더보기 ↗</a></div><div className="profile-card"><img src={IMAGES.ME} alt="이하진 프로필" /><h3>이하진 <span>LEE HAJIN</span></h3><p>Cloud Engineer<br />Web Publishing Background</p><a href="mailto:hjin201123@gmail.com">hjin201123@gmail.com ↗</a></div></div></section>
+  <section className="content-section"><div className="section-label">02 / EXPERIENCE & EDUCATION</div><div className="summary-grid"><div><h2>경력 요약</h2>{jobs.map(job => <div className="summary-row" key={job.company}><span>{job.period}</span><h3>{job.company}</h3><p>{job.role}</p></div>)}</div><div><h2>교육</h2><div className="summary-row"><span>2025.12 — 2026.06</span><h3>AWS · Azure 하이브리드 멀티클라우드 DevOps</h3><p>솔데스크 · 과정 수료</p></div><div className="summary-row"><span>2019.12 — 2020.06</span><h3>UI/UX 스마트 콘텐츠 융합 응용 SW 엔지니어링</h3><p>KH정보교육원 · 과정 수료</p></div><div className="summary-row"><span>2013.03 — 2018.02</span><h3>한서대학교 산업디자인학과</h3><p>졸업</p></div></div></div></section>
+  <section className="content-section"><div className="section-label">03 / TOOLKIT</div><h2>경험을 연결하는 기술들</h2><Tags items={skills} /></section><section className="content-section"><div className="section-label">04 / DOCUMENTS</div><h2>경험과 결과물, 더 자세히.</h2><DocumentLinks /></section></>;
+}
+function Career() {
+  return <><Heading eyebrow="CAREER DETAILS" title="경력기술서" description="회사별 역할과 담당 업무를 중심으로 정리한 실무 경험입니다." /><div className="page-tools"><span>WORK EXPERIENCE / 2 COMPANIES</span><button className="btn compact" onClick={() => window.print()}>인쇄 · PDF 저장 ↓</button></div><div className="career-list">{jobs.map((job, i) => <article className="career-card" key={job.company}><div className="career-side"><span className="eyebrow">0{i + 1}</span><h2>{job.company}</h2><p>{job.period}</p><span className="badge">{job.role}</span></div><div className="career-body"><h3>{job.summary}</h3><h4>담당 업무</h4><ul>{job.tasks.map(task => <li key={task}>{task}</li>)}</ul><h4>사용 기술</h4><Tags items={job.tags} /></div></article>)}</div><aside className="next-card"><div><span className="eyebrow">SEE THE WORK</span><h2>프로젝트 결과물이 궁금하다면</h2><p>실무 웹 작업과 클라우드 프로젝트를 포트폴리오에서 확인하세요.</p></div><Link className="btn" to="/portfolio">포트폴리오 보기 →</Link></aside></>;
+}
+function Portfolio() {
+  const [filter, setFilter] = useState('전체');
+  return <><Heading eyebrow="SELECTED WORK" title="포트폴리오" description="클라우드 인프라부터 사용자 화면까지, 직접 만들어온 프로젝트입니다." /><div className="filter-bar"><div className="filters" aria-label="프로젝트 분류">{['전체', '클라우드', '웹 퍼블리싱'].map(item => <button key={item} aria-pressed={filter === item} className={filter === item ? 'active' : ''} onClick={() => setFilter(item)}>{item}</button>)}</div><span>{filter === '전체' ? '07' : filter === '클라우드' ? '02' : '05'} PROJECTS</span></div>{filter !== '웹 퍼블리싱' && <Project />}{filter !== '클라우드' && <Work />}<aside className="next-card"><div><span className="eyebrow">BEHIND THE WORK</span><h2>회사별 업무 경험 보기</h2></div><Link className="btn" to="/career">경력기술서 보기 →</Link></aside></>;
+}
+function Site() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); document.title = `${pathname === '/career' ? '경력기술서' : pathname === '/portfolio' ? '포트폴리오' : '이력서'} | 이하진`; }, [pathname]);
+  return <><a className="skip-link" href="#main">본문 바로가기</a><header className="site-header"><Link className="logo" to="/">hjin<span className="mint">.</span><span className="logo-caption">PORTFOLIO</span></Link><nav aria-label="주 메뉴"><NavLink to="/" end>이력서</NavLink><NavLink to="/career">경력기술서</NavLink><NavLink to="/portfolio">포트폴리오</NavLink></nav><a className="header-contact" href="mailto:hjin201123@gmail.com">함께 이야기해요 ↗</a></header><main id="main"><Routes><Route path="/" element={<Resume />} /><Route path="/career" element={<Career />} /><Route path="/portfolio" element={<Portfolio />} /><Route path="*" element={<><Heading eyebrow="404" title="페이지를 찾을 수 없습니다" description="아래 링크에서 이력서로 돌아갈 수 있습니다." /><Link className="btn" to="/">이력서로 돌아가기 →</Link></>} /></Routes></main><footer><div><span className="eyebrow">LET’S CONNECT</span><h2>함께 만들어갈 다음을 기다립니다<span className="mint">.</span></h2><a className="email" href="mailto:hjin201123@gmail.com">hjin201123@gmail.com ↗</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} 이하진</span><a href="https://github.com/hjin-2e" target="_blank" rel="noreferrer">GitHub ↗</a><Link to="/">이력서 ↑</Link></div></footer></>;
+}
+export default function App() { return <HashRouter><Site /></HashRouter>; }

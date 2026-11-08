@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 
 // TypeScript 호환을 위해 props 타입 지정
 interface HeaderProps {

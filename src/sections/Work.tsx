@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import { useState, type MouseEvent } from 'react';
 import Modal from '@/components/Modal'; 
 import { IMAGES } from '@/assets/img';
 
@@ -60,7 +60,7 @@ const Work = () => {
       id: 1,
       title: '메가스터디 교육 러셀 유지보수',
       category: 'Web | 퍼블리싱 · 반응형 · FIGMA',
-      period: '2021.01 - 2021.06',
+      period: '2023.04 - 2025.10 (재직 기간)',
       skill: 'HTML5 · CSS3 · Javascript · J-query · Vue', 
       contribution : '퍼블리싱 100%', 
       description: '메가스터디 러셀 퍼블리싱을 담당하며 웹사이트 운영 및 유지보수, 모집요강 프로젝트 개발, 신규 사이트 구축 등 다양한 퍼블리싱 업무를 수행했습니다.',
@@ -127,7 +127,7 @@ const Work = () => {
   return (
     <section id="work" className="sec sec02">
       <div className="sec-inner">
-        <h3 className="sec-tit">Work</h3>
+        <h3 className="sec-tit">웹 퍼블리싱</h3>
         <div className="work-wrap">
           <ul className="work-list">
             {workList.map((item) => (
@@ -139,7 +139,7 @@ const Work = () => {
                 >
                   <div className="work-img">
                     {/* 카드 썸네일 출력 */}
-                    <img src={item.thumbnail} alt={item.title} />
+                    <img loading="lazy" src={item.thumbnail} alt={item.title} />
                   </div>
                   <div className="work-txt">
                     <h5>{item.title}</h5>
@@ -185,7 +185,7 @@ const Work = () => {
                 {selectedWork.modalImages.slice(0).map((imgSrc, index) => (
                   <div key={index} className="modal-img-item">
                     <img 
-                      src={imgSrc} 
+                      loading="lazy" src={imgSrc}
                       /* 첫 번째 이미지를 제외했으므로, 텍스트 상으로는 2번째 이미지부터 시작하도록 인덱스 조정 (선택사항) */
                       alt={`${selectedWork.title} 이미지 ${index + 1}`} 
                       style={{ width: '100%', height: 'auto', borderRadius: '4px' }}
