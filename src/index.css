@@ -139,3 +139,12 @@ dialog.modal-overlay{margin:0;border:0;width:100%;height:100%;max-width:none;max
   .portfolio-print-links{display:flex;flex-wrap:wrap;gap:0 14px}
   .portfolio-print-details a:after{content:none}
 }
+
+@media print{
+  .portfolio-image-appendix{display:block}
+  .portfolio-print-slide{margin:0;break-before:page;break-inside:avoid;padding:0}
+  .portfolio-print-slide figcaption{display:flex;justify-content:space-between;align-items:start;gap:16px;padding:0 0 10px;margin-bottom:12px;border-bottom:1px solid #ddd;color:#171717;font-size:12px;line-height:1.6}
+  .portfolio-print-slide figcaption strong{max-width:80%;word-break:keep-all}
+  .portfolio-print-slide figcaption span{flex-shrink:0;font-size:10px;color:#555}
+  .portfolio-print-slide img{display:block;width:100%;height:auto;max-height:235mm;object-fit:contain;object-position:top}
+}

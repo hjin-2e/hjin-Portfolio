@@ -124,6 +124,14 @@ const Project = () => {
               </li>
             ))}
           </ul>
+          <div className="print-only portfolio-image-appendix">
+            {projectList.map(item => item.modalImages?.map((src, index) => (
+              <figure className="portfolio-print-slide" key={item.id + '-' + index}>
+                <figcaption><strong>{item.title}</strong><span>상세 이미지 {index + 1} / {item.modalImages?.length}</span></figcaption>
+                <img src={src} loading="lazy" alt={item.title + ' 상세 이미지 ' + (index + 1)} />
+              </figure>
+            )))}
+          </div>
         </div>
       </div>
 
