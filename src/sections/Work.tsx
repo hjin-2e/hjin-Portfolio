@@ -146,6 +146,11 @@ const Work = () => {
                     <p>{item.category}</p>
                   </div>
                 </a>
+                <div className="print-only portfolio-print-details">
+                  <dl><dt>기간</dt><dd>{item.period}</dd><dt>사용 기술</dt><dd>{item.skill}</dd><dt>담당 범위</dt><dd>{item.contribution}</dd></dl>
+                  <p>{item.description}</p>
+                  <a href={item.notionUrl}>프로젝트 상세 자료 · Notion ↗</a>
+                </div>
               </li>
             ))}
           </ul>

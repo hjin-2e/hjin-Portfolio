@@ -7,6 +7,8 @@ interface ProjectItem {
   title: string;
   category: string;
   description?: string;
+  role?: string;
+  skills: string;
   githubUrl: string;
   notionUrl: string;
   thumbnail: string;      
@@ -65,7 +67,8 @@ const Project = () => {
       id: 1,
       title: 'Global Accelerator를 활용한 하이브리드 환경의 인프라 구축',
       category: '클라우드 | 인프라 · 대시보드 · 장애복구',
-      description: 'Global Accelerator를 활용한 하이브리드 환경의 인프라 구축 관련 상세 내용입니다.',
+      description: '웹 서비스의 클라우드 마이그레이션과 온프레미스 데이터베이스 연동을 위한 하이브리드 인프라 구축 프로젝트입니다. Global Accelerator를 활용한 서비스 구성과 장애복구 검증을 다뤘습니다.',
+      skills: 'AWS · Global Accelerator · 하이브리드 네트워크 · 장애복구',
       githubUrl: '',
       notionUrl: 'https://app.notion.com/p/rajinse/3a6b30fb662580f39d96f72822c95e5b',
       thumbnail: IMAGES.CLOUD_PROJECT01_01, // 카드 썸네일 이미지
@@ -75,7 +78,9 @@ const Project = () => {
       id: 2,
       title: '테라폼을 활용한 MSA 기반의 보안성과 가용성을 갖춘 하이브리드 철도 예매 플랫폼 구축',
       category: '클라우드 | 인프라 · 웹페이지 · 장애복구',
-      description: '테라폼을 활용한 MSA 기반의 보안성과 가용성을 갖춘 하이브리드 철도 예매 플랫폼 구축 관련 작업 상세 내용입니다.',
+      description: 'Terraform을 활용해 AWS·Azure 하이브리드 환경에 MSA 기반 철도 예매 플랫폼을 구축한 4인 팀 프로젝트입니다. 팀장으로 참여해 인프라 구성과 프론트엔드 구현을 담당했습니다.',
+      role: '팀장 · Terraform 기반 AWS/Azure IaC · EKS · Kubernetes HPA · Cognito · SES · 프론트엔드',
+      skills: 'Terraform · AWS · Azure · Amazon EKS · Kubernetes · Amazon Cognito · Amazon SES',
       githubUrl: 'https://github.com/hjin-2e/Train_repo.git',
       notionUrl: 'https://app.notion.com/p/rajinse/MSA-3a6b30fb66258089a5edc7fdd4e404c7?v=082b30fb66258369a10e08221f920052',
       thumbnail: IMAGES.CLOUD_PROJECT02_01, // 카드 썸네일 이미지
@@ -111,6 +116,11 @@ const Project = () => {
                     <p>{item.category}</p>
                   </div>
                 </a>
+                <div className="print-only portfolio-print-details">
+                  <dl><dt>사용 기술</dt><dd>{item.skills}</dd>{item.role && <><dt>담당 역할</dt><dd>{item.role}</dd></>}</dl>
+                  <p>{item.description}</p>
+                  <div className="portfolio-print-links">{item.githubUrl && <a href={item.githubUrl}>소스 코드 · GitHub ↗</a>}<a href={item.notionUrl}>프로젝트 상세 자료 · Notion ↗</a></div>
+                </div>
               </li>
             ))}
           </ul>
