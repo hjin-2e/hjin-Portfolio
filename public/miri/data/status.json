@@ -1,5 +1,55 @@
 {
   "schemaVersion": 1,
-  "updatedAt": null,
-  "items": []
+  "updatedAt": "2026-11-09",
+  "items": [
+    {
+      "elementName": "눈사람 3D 아이콘",
+      "style": "Cute 3D Icon",
+      "fileName": "snowman_cute_3d_icon.png",
+      "status": "planned",
+      "updatedAt": null
+    },
+    {
+      "elementName": "크리스마스트리 3D 아이콘",
+      "style": "Cute 3D Icon",
+      "fileName": "christmas_tree_cute_3d_icon.png",
+      "status": "planned",
+      "updatedAt": null
+    },
+    {
+      "elementName": "눈꽃 3D 아이콘",
+      "style": "Cute 3D Icon",
+      "fileName": "snowflake_cute_3d_icon.png",
+      "status": "planned",
+      "updatedAt": null
+    },
+    {
+      "elementName": "루돌프 3D 아이콘",
+      "style": "Cute 3D Icon",
+      "fileName": "reindeer_cute_3d_icon.png",
+      "status": "planned",
+      "updatedAt": null
+    },
+    {
+      "elementName": "선물상자 3D 아이콘",
+      "style": "Cute 3D Icon",
+      "fileName": "gift_box_cute_3d_icon.png",
+      "status": "planned",
+      "updatedAt": null
+    },
+    {
+      "elementName": "눈사람 투명 버블",
+      "style": "Clear Bubble",
+      "fileName": "snowman_clear_bubble.png",
+      "status": "planned",
+      "updatedAt": null
+    },
+    {
+      "elementName": "크리스마스트리 투명 버블",
+      "style": "Clear Bubble",
+      "fileName": "christmas_tree_clear_bubble.png",
+      "status": "planned",
+      "updatedAt": null
+    }
+  ]
 }
